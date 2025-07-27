@@ -3035,16 +3035,16 @@
         // 1. Bascule du menu mobile
         // ====================================
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNavMenu = document.getElementById('mainNavMenu'); // Référence au menu unique
+        const mainNavMenu = document.getElementById('mainNavMenu'); 
         
         mobileMenuBtn.addEventListener('click', () => {
-            mainNavMenu.classList.toggle('active'); // Utiliser la classe 'active' pour afficher/masquer
+            mainNavMenu.classList.toggle('active'); 
         });
 
         // Fermer le menu mobile lorsqu'un lien est cliqué
         document.querySelectorAll('#mainNavMenu a').forEach(link => {
             link.addEventListener('click', () => {
-                mainNavMenu.classList.remove('active'); // Masquer au clic
+                mainNavMenu.classList.remove('active'); 
             });
         });
 
@@ -3057,8 +3057,7 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    // Pas de décalage d'en-tête nécessaire, juste un petit ajustement visuel
-                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80; // Ajuster pour la hauteur du header sticky
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY - 80; 
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -3075,21 +3074,20 @@
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
-        const robitChatContainer = document.getElementById('robitChatContainer'); // Référence au conteneur de chat
-        const floatingRobitBtn = document.getElementById('floatingRobitBtn'); // Référence au bouton flottant
+        const robitChatContainer = document.getElementById('robitChatContainer'); 
+        const floatingRobitBtn = document.getElementById('floatingRobitBtn'); 
 
         let isLoading = false;
-        let chatHistory = []; // Historique de la conversation pour l'assistant
+        let chatHistory = []; 
 
         // Fonction pour ajouter un message au chat
         function addMessage(content, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'} animate-messageSlide`;
-            messageDiv.innerHTML = content.replace(/\n/g, '<br>'); // Permet les retours à la ligne
+            messageDiv.innerHTML = content.replace(/\n/g, '<br>'); 
             chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // Défilement automatique vers le bas
+            chatMessages.scrollTop = chatMessages.scrollHeight; 
 
-            // Ajouter le message à l'historique pour l'assistant
             if (!isUser) {
                 chatHistory.push({ role: "model", parts: [{ text: content }] });
             } else {
@@ -3117,30 +3115,18 @@
             isLoading = true;
             updateButtonState();
 
-            addMessage(message, true); // Ajouter le message utilisateur à l'interface et à l'historique local
-            chatInput.value = ''; // Effacer le champ de saisie
+            addMessage(message, true); 
+            chatInput.value = ''; 
 
             try {
                 const payload = {
-                    contents: chatHistory, // Envoyer l'historique complet tel quel
+                    contents: chatHistory, 
                     generationConfig: {
                         responseMimeType: "text/plain"
                     }
                 };
                 
-                // IMPORTANT : Pour une utilisation en production, il est FORTEMENT recommandé
-                // de ne PAS exposer votre clé API Gemini directement dans le code client.
-                // Utilisez un proxy backend (Python, Node.js, etc.) pour gérer l'appel API de manière sécurisée.
-                // Exemple de proxy Node.js :
-                // app.post('/api/gemini', async (req, res) => {
-                //   const { prompt } = req.body;
-                //   const response = await model.generateContent(prompt); // 'model' initialisé avec votre clé API sécurisée
-                //   res.json({ response: response.text });
-                // });
-                // Votre fetch() appellerait alors '/api/gemini' au lieu de l'URL directe de Google.
-
-                const apiKey = ""; // <--- Votre clé API Gemini DOIT être insérée ici
-                                   //      Ou utilisez un proxy backend comme recommandé ci-dessus.
+                const apiKey = ""; 
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 const response = await fetch(apiUrl, {
@@ -3166,8 +3152,6 @@
                     botResponse = (currentLang === 'fr' ? 'Désolé, je ne peux pas répondre pour le moment. Le format de la réponse de Gemini est inattendu.' : 'Sorry, I cannot respond at the moment. Gemini\'s response format is unexpected.');
                 }
                 
-                // Ajouter un conseil proactif de Patrick si ce n'est pas déjà présent
-                // et si la réponse n'est pas déjà un message d'erreur de connexion.
                 if (botResponse && !botResponse.includes('💡') && !botResponse.includes('Appelez Patrick') && !botResponse.includes('Call Patrick') && !botResponse.includes('Problème de connexion')) {
                     const proactiveTip = currentLang === 'fr' ?
                         `\n\n💡 **Conseil de Patrick :** N'hésitez jamais à appeler pour un diagnostic GRATUIT ! 📞 (819) 380-2999` :
@@ -3175,35 +3159,33 @@
                     botResponse += proactiveTip;
                 }
                 
-                addMessage(botResponse); // Ajouter la réponse de l'assistant
+                addMessage(botResponse); 
             } catch (error) {
                 console.error('Erreur Robit :', error);
                 const errorMsg = currentLang === 'fr' ?
                     `🤖 **Problème de connexion de l'assistant temporaire...**\n\n💡 **Solution immédiate :**\n📞 **Appelez Patrick directement : (819) 380-2999**\n🏠 Service à domicile disponible\n🔧 Diagnostic gratuit inclus dans toute réparation\n❤️ Patrick vous aide avec patience !` :
                     `🤖 **Temporary assistant connection issue...**\n\n💡 **Immediate solution:**\n📞 **Call Patrick directly: (819) 380-2999**\n🏠 Home service available\n🔧 Free diagnosis included with any repair\n❤️ Patrick helps you with patience!`;
                 
-                addMessage(errorMsg); // Afficher un message d'erreur convivial
+                addMessage(errorMsg); 
             } finally {
                 isLoading = false;
-                updateButtonState(); // Réinitialiser l'état du bouton
-                chatInput.focus(); // Restaurer le focus sur le champ de saisie
+                updateButtonState(); 
+                chatInput.focus(); 
             }
         }
 
-        // Écouteurs d'événements pour le chat
         sendBtn.addEventListener('click', sendMessage);
         chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) { // Envoyer avec Entrée, pas Maj+Entrée
+            if (e.key === 'Enter' && !e.shiftKey) { 
                 e.preventDefault();
                 sendMessage();
             }
         });
 
-        // Toggle la visibilité du conteneur de chat
         floatingRobitBtn.addEventListener('click', () => {
             robitChatContainer.classList.toggle('is-visible');
             if (robitChatContainer.classList.contains('is-visible')) {
-                chatInput.focus(); // Mettre le focus sur le champ de saisie si le chat est visible
+                chatInput.focus(); 
             }
         });
 
@@ -3360,156 +3342,6 @@
                 availability_status_closed: "🔴 Fermé pour l'instant", 
                 availability_status_emergency: "🟠 Urgence seulement", 
                 floating_robit_btn_text: "💬 Parler à Robit" 
-            },
-            en: {
-                page_title: "Potvin IT Workshop",
-                company_name: "Potvin IT Workshop",
-                robit_menu: "🤖 Robit Assistant Free",
-                services_menu: "Services",
-                assistance_menu: "Support",
-                contact_menu: "Contact",
-                call_to_action_header: "(819) 380-2999",
-                founder_expert: "Founder • Expert since 1984",
-                hero_tagline: "❤️ Passionate since age 9",
-                hero_title: "Hi, I'm Patrick! Your trusted IT expert.",
-                hero_description: "Since 1984, I help people regain control of their computer.", 
-                years_experience: "Years of Experience",
-                clients_helped: "Clients Helped",
-                available: "Available",
-                free_quote_button: "Request assistance now", 
-                talk_to_robit_button: "Talk to Robit AI", 
-                download_agent_button: "Download my secure agent", 
-                whatsapp_button_hero: "WhatsApp",
-                urgent_call_note: "For any IT emergency, Patrick is available 7/7. Don't wait!",
-                badge_quebec: "100% Quebec", 
-                badge_secure: "Secure – No access without consent", 
-                badge_tested: "Tested on +1000 machines", 
-                badge_compatible: "Compatible : Windows / macOS / Linux", 
-                robit_title: "Robit - Your Intelligent Assistant",
-                robit_description: "Need a quick answer to an IT question? Is your computer acting up? Chat with Robit, your intelligent virtual assistant.",
-                robit_free_tag: "💎 100% FREE & INSTANT 💎",
-                robit_status: "🤖 Robit Assistant - Online and ready to help!",
-                powered_by_gemini: "", 
-                robit_initial_greeting_strong: "Hi! I'm Robit, Patrick's super intelligent assistant!",
-                robit_pc_slow_strong: "Is your PC slow?",
-                robit_pc_slow_text: "I'll give you immediate solutions!",
-                robit_virus_strong: "Virus problem?",
-                robit_virus_text: "I'll guide you step by step!",
-                robit_tablet_strong: "Mysterious tablet?",
-                robit_tablet_text: "I'll explain everything simply!",
-                robit_learn_strong: "Want to learn?",
-                robit_learn_text: "I'll train you with patience!",
-                robit_ask_question_strong: "Ask me your question and I'll give you a FREE personalized answer!",
-                robit_emergency_strong: "Emergency? Call Patrick directly:",
-                robit_phone_number: "(819) 380-2999",
-                robit_home_service_strong: "Home service available • Free diagnosis included",
-                send_button: "Send",
-                online_diagnosis_title: "🧪 Online Diagnosis (Coming Soon!)", 
-                online_diagnosis_description: "A simple tool to scan memory, disk, or processor remotely and get a free mini-report.", 
-                online_diagnosis_button: "Launch a quick diagnosis", 
-                services_title: "How I can help you",
-                services_description: "Services designed for you, with the patience and expertise you deserve.",
-                repair_title: "Computer Repair",
-                repair_description: "PC slow, viruses, blue screens... I'll find the problem and fix it, explaining everything step by step.", 
-                repair_price: "$45/hr – 1st hour included", 
-                repair_button: "Patrick, come check this out!",
-                home_service_title: "Home Service",
-                home_service_description: "I come to your home with all my tools. You stay comfortable in your living room while I take care of your IT troubles.",
-                home_service_price: "Travel: $25 only",
-                home_service_button: "Book an appointment",
-                antivirus_title: "Antivirus Protection",
-                antivirus_description: "No more pop-ups and scams! I'll install solid protection and show you how to browse the internet safely.",
-                antivirus_price: "Full package: $125",
-                antivirus_button: "Protect me Patrick!",
-                virustotal_link: "Check a file with VirusTotal",
-                courses_title: "In-Home Training", 
-                courses_description: "I'll show you how to use your computer, tablet, or cell phone at your own pace. <strong style='color:var(--color-primary);'>Training adapted for seniors and beginners, no pressure!</strong>", 
-                courses_emphasis_elders: "Training adapted for seniors and beginners, no pressure!", 
-                courses_price: "$60/hour • No pressure",
-                courses_button: "Learn with Patrick",
-                robit_service_title: "Personalized Robit AI", 
-                robit_service_description: "Ask your questions – Robit answers. An intelligent assistant always there to help you with your IT worries.", 
-                robit_service_price: "First contact free", 
-                robit_service_button: "Talk to Robit", 
-                website_title: "Website Creation",
-                website_description: "Need an online presence? I design custom websites for small businesses and professionals, in your image.",
-                website_price: "Custom quote",
-                website_button: "Request a quote!",
-                installation_title: "Installation & Configuration",
-                installation_description: "Installation d'équipements domotiques, informatiques et réseau : ordinateurs, imprimantes, routeurs, objets connectés... I'll take care of everything.",
-                installation_price: "On quote",
-                installation_button: "Configure with Patrick!",
-                assistance_title: "📡 Secure Remote Assistance", 
-                assistance_description: "Téléchargez l'outil sécurisé pour permettre à Patrick de vous aider immédiatement, où que vous soyez.",
-                windows_title: "For Windows",
-                windows_compatibility: "Compatible with Windows Vista, 7, 8, 10, and 11.",
-                download_windows_button: "Download for Windows",
-                macos_title: "For macOS",
-                macos_compatibility: "Compatible with macOS 10.12 (Sierra) and newer versions.",
-                download_macos_button: "Download for macOS",
-                linux_title: "For Linux", 
-                linux_compatibility: "Compatible with most Linux distributions.", 
-                download_linux_button: "Download for Linux", 
-                download_guide_button: "Remote Connection Guide (PDF)", 
-                download_all_agents_button: "All Agents (ZIP)", 
-                security_guaranteed_strong: "🔒 Sécurité garantie :",
-                security_guaranteed_text: "Connexion directe et sécurisée à Patrick.",
-                important_note_strong: "Note importante :",
-                important_note_text: "Votre antivirus peut détecter l'agent comme un \"faux positif\". C'est un comportement normal pour ce type d'outil d'assistance à distance. Vous pouvez l'ignorer en toute confiance.",
-                learn_more_false_positive: "(Learn more)",
-                virustotal_verified_text: "Verified and approved by security standards.", 
-                testimonials_title: "What my clients say about me",
-                testimonials_description: "Client satisfaction is my greatest pride. Here's some of their feedback.",
-                testimonial_1_quote: "\"Patrick solved my PC problem in no time! He is incredibly patient and explains everything so clearly. A true IT magician!\"",
-                testimonial_1_name: "Marie Dubois",
-                testimonial_1_role: "Retired, Nicolet",
-                testimonial_2_quote: "\"I was afraid of computers, but Patrick's courses are great. He adapts to my pace and I learn so much. I recommend him 100%!\"",
-                testimonial_2_name: "Jean Tremblay",
-                testimonial_2_role: "Entrepreneur, Victoriaville",
-                testimonial_3_quote: "\"Impeccable home service! My Wi-Fi network is finally stable. Patrick is fast, efficient, and very friendly. The best technician I've ever had.\"",
-                testimonial_3_name: "Sophie Lévesque",
-                testimonial_3_role: "Family, Bécancour",
-                testimonial_4_quote: "\"Thanks to Patrick, my old computer got a second life. He did a complete cleanup and now everything is smooth. Exceptional service!\"", 
-                testimonial_4_name: "Marc Gagnon", 
-                testimonial_5_quote: "\"I had an urgent problem on a Saturday morning, and Patrick responded promptly. He resolved the issue remotely in record time. Very professional and reassuring.\"", 
-                testimonial_5_name: "Isabelle Roy", 
-                contact_title: "Call Patrick to solve your worries!",
-                contact_description: "A question? An urgent problem? Patrick is here to help you with a smile.",
-                contact_phone_title: "Phone",
-                contact_phone_hours_regular_strong: "Regular hours:",
-                contact_phone_hours_regular_text: "Mon-Fri 9am-5pm",
-                contact_phone_hours_emergency_strong: "Emergency (extra charge):",
-                contact_phone_hours_emergency_text: "7/7 after 5pm, weekends & holidays",
-                contact_email_title: "Email",
-                contact_email_guarantee: "Response within 24h guaranteed",
-                contact_address_title: "Address",
-                contact_address_radius: "Home service within a 50km radius",
-                contact_neq_title: "NEQ",
-                contact_neq_text: "Company registered in Quebec",
-                quick_request_form_title: "Quick request form", 
-                form_name_label: "Name:", 
-                form_phone_label: "Phone:", 
-                form_email_label: "Email (optional):", 
-                form_problem_description_label: "Problem description:", 
-                form_submit_button: "Send my request", 
-                map_title: "Where to find us", 
-                emergency_module_title: "⚠️ Urgent problem? Immediate help!", 
-                emergency_module_description: "For emergencies after 5 PM, weekends, and holidays, a double rate applies. Your problem will be solved quickly!", 
-                emergency_call_button: "Call Patrick for emergency", 
-                emergency_download_agent_note: "Or download the pre-configured RustDesk assistance agent here.", 
-                call_patrick_now_button: "Call Patrick now",
-                pay_invoice_button: "Pay an invoice",
-                client_area_button: "Client Area (Coming Soon)", 
-                privacy_policy_link: "Privacy Policy",
-                terms_of_service_link: "Terms of Service",
-                footer_copyright_company: "Potvin IT Workshop (AIP)",
-                footer_copyright_patrick: "Patrick Potvin, at your service since 1984 ❤️",
-                footer_ai_creation: "🤖 Site created with assistant help • Modern & warm design 2025",
-                footer_design_by: "🎨 Design and conception by Patrick Potvin - AIP Potvin IT Workshop",
-                availability_status_open: "🟢 Available today", 
-                availability_status_closed: "🔴 Closed for now", 
-                availability_status_emergency: "🟠 Emergency only", 
-                floating_robit_btn_text: "💬 Talk to Robit" 
             }
         };
 
@@ -3639,11 +3471,11 @@
 
             // Mettre en évidence la carte de téléchargement appropriée
             if (userAgent.includes('Win')) {
-                downloadCardWindows.style.order = '-1'; // Place Windows first
+                downloadCardWindows.style.order = '-1'; 
             } else if (userAgent.includes('Mac')) {
-                downloadCardMacOS.style.order = '-1'; // Place macOS first
+                downloadCardMacOS.style.order = '-1'; 
             } else if (userAgent.includes('Linux')) {
-                downloadCardLinux.style.order = '-1'; // Place Linux first
+                downloadCardLinux.style.order = '-1'; 
             }
 
             // Mettre à jour le statut de disponibilité au chargement
@@ -3703,61 +3535,50 @@
 
         function startTypingEffect() {
             const textToType = heroSubtitle.dataset.originalText;
-            heroSubtitle.textContent = ''; // Vider le texte initial pour l'animation
+            heroSubtitle.textContent = ''; 
             currentTypingIndex = 0;
-            clearTimeout(typingTimeout); // Annuler tout effet de frappe précédent
+            clearTimeout(typingTimeout); 
 
             function typeCharacter() {
                 if (currentTypingIndex < textToType.length) {
                     heroSubtitle.textContent += textToType.charAt(currentTypingIndex);
                     currentTypingIndex++;
-                    typingTimeout = setTimeout(typeCharacter, 50); // Vitesse de frappe (ms par caractère)
+                    typingTimeout = setTimeout(typeCharacter, 50); 
                 }
             }
             typeCharacter();
         }
 
-        // Déclencher l'effet de frappe après un court délai au chargement de la page
         window.addEventListener('load', () => {
-            setTimeout(startTypingEffect, 1000); // Délai avant de commencer la frappe
+            setTimeout(startTypingEffect, 1000); 
         });
 
-        // Mettre à jour l'effet de frappe lors du changement de langue
         languageSelector.addEventListener('change', function() {
             applyLanguage(this.value);
-            // Mettre à jour le texte original pour l'effet de frappe après la traduction
             heroSubtitle.dataset.originalText = translations[document.documentElement.lang].hero_description;
-            startTypingEffect(); // Redémarrer l'effet de frappe avec le nouveau texte
+            startTypingEffect(); 
         });
 
 
         // Gestion du mode clair/sombre
         // ====================================
-        // const themeToggleBtn = document.getElementById('themeToggleBtn'); // Déjà défini plus haut
-        // const body = document.body; // Déjà défini plus haut
-
-        // Fonction pour mettre à jour l'icône du bouton
         function updateThemeToggleIcon(theme) {
             const iconClass = theme === 'light-mode' ? 'fas fa-sun' : 'fas fa-moon';
             themeToggleBtn.innerHTML = `<i class="${iconClass}"></i>`;
         }
 
-        // Appliquer le thème au chargement
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             body.classList.add(savedTheme);
             updateThemeToggleIcon(savedTheme);
         } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            // Détecter la préférence système et appliquer le mode clair par défaut
             body.classList.add('light-mode');
             updateThemeToggleIcon('light-mode');
         } else {
-            // Par défaut, mode sombre si aucune préférence système ou enregistrée
             body.classList.add('dark-mode');
             updateThemeToggleIcon('dark-mode');
         }
 
-        // Basculer le thème au clic
         themeToggleBtn.addEventListener('click', () => {
             if (body.classList.contains('light-mode')) {
                 body.classList.remove('light-mode');
@@ -3777,14 +3598,12 @@
         simplifiedModeToggleBtn.addEventListener('click', () => {
             body.classList.toggle('simplified-mode');
             localStorage.setItem('simplifiedMode', body.classList.contains('simplified-mode') ? 'true' : 'false');
-            // Re-render charts if they exist
             if (window.mySatisfactionChart) window.mySatisfactionChart.destroy();
             if (window.myInterventionChart) window.myInterventionChart.destroy();
             if (window.myResolutionChart) window.myResolutionChart.destroy();
             initializeCharts();
         });
 
-        // Appliquer le mode simplifié au chargement si enregistré
         if (localStorage.getItem('simplifiedMode') === 'true') {
             body.classList.add('simplified-mode');
         }
@@ -3792,9 +3611,7 @@
 
         // Afficher le bouton flottant Robit après un délai ou une interaction
         // ====================================
-        // Le bouton est maintenant toujours visible par défaut via CSS, donc ce JS est simplifié.
-        // Il peut être utilisé pour des animations ou des interactions plus complexes si nécessaire.
-        floatingRobitBtn.style.display = 'flex'; // Assure qu'il est visible dès le chargement
+        floatingRobitBtn.style.display = 'flex'; 
 
 
         // Carrousel de témoignages
@@ -3806,14 +3623,14 @@
         if (testimonialsGrid && prevTestimonialBtn && nextTestimonialBtn) {
             nextTestimonialBtn.addEventListener('click', () => {
                 testimonialsGrid.scrollBy({
-                    left: testimonialsGrid.offsetWidth, // Défile d'une largeur de grille
+                    left: testimonialsGrid.offsetWidth, 
                     behavior: 'smooth'
                 });
             });
 
             prevTestimonialBtn.addEventListener('click', () => {
                 testimonialsGrid.scrollBy({
-                    left: -testimonialsGrid.offsetWidth, // Défile d'une largeur de grille
+                    left: -testimonialsGrid.offsetWidth, 
                     behavior: 'smooth'
                 });
             });
@@ -3827,44 +3644,36 @@
 
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault(); // Empêche la soumission par défaut du formulaire
+                e.preventDefault(); 
 
-                // Récupérer les valeurs des champs
                 const name = document.getElementById('name').value.trim();
                 const phone = document.getElementById('phone').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const problem = document.getElementById('problem').value.trim();
 
-                // Validation simple
                 if (!name || !phone || !problem) {
                     displayFormMessage(translations[document.documentElement.lang].form_validation_required, 'error');
                     return;
                 }
 
-                // Validation du format de téléphone (basique)
                 const phoneRegex = /^[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}$/;
                 if (!phoneRegex.test(phone)) {
                     displayFormMessage(translations[document.documentElement.lang].form_validation_phone, 'error');
                     return;
                 }
 
-                // Validation du format d'email (basique)
                 if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     displayFormMessage(translations[document.documentElement.lang].form_validation_email, 'error');
                     return;
                 }
 
-                // Simuler l'envoi du formulaire
-                // En production, vous enverriez ces données à un serveur (ex: via fetch)
                 console.log('Formulaire envoyé :', { name, phone, email, problem });
 
-                // Afficher un message de succès
                 displayFormMessage(translations[document.documentElement.lang].form_success_message, 'success');
 
-                // Réinitialiser le formulaire après un court délai
                 setTimeout(() => {
                     contactForm.reset();
-                    formMessage.textContent = ''; // Effacer le message
+                    formMessage.textContent = ''; 
                     formMessage.classList.remove('success', 'error');
                 }, 3000);
             });
@@ -3872,11 +3681,10 @@
 
         function displayFormMessage(message, type) {
             formMessage.textContent = message;
-            formMessage.className = ''; // Réinitialiser les classes
-            formMessage.classList.add('text-sm', 'mt-2', type); // Ajouter les classes de style
+            formMessage.className = ''; 
+            formMessage.classList.add('text-sm', 'mt-2', type); 
         }
 
-        // Mise à jour des traductions pour les messages de formulaire
         translations.fr.form_validation_required = "Veuillez remplir tous les champs obligatoires.";
         translations.fr.form_validation_phone = "Veuillez entrer un numéro de téléphone valide (ex: 123-456-7890).";
         translations.fr.form_validation_email = "Veuillez entrer une adresse email valide.";
@@ -3910,18 +3718,16 @@
                     return;
                 }
 
-                // Simuler l'enregistrement de l'email
                 console.log('Email pour notification enregistré :', email);
                 diagnosisMessage.textContent = currentLang === 'fr' ? "Merci ! Nous vous notifierons du lancement." : "Thank you! We will notify you upon launch.";
                 diagnosisMessage.style.color = 'var(--green-btn-start)';
-                diagnosisEmailInput.value = ''; // Effacer le champ
+                diagnosisEmailInput.value = ''; 
             });
         }
 
         // Initialisation des graphiques Chart.js
         // ====================================
         function initializeCharts() {
-            // Graphique de satisfaction client (Doughnut Chart)
             const ctxSatisfaction = document.getElementById('satisfactionChart');
             if (ctxSatisfaction) {
                 window.mySatisfactionChart = new Chart(ctxSatisfaction, {
@@ -3977,7 +3783,6 @@
                 });
             }
 
-            // Graphique des types d'interventions (Bar Chart)
             const ctxIntervention = document.getElementById('interventionChart');
             if (ctxIntervention) {
                 window.myInterventionChart = new Chart(ctxIntervention, {
@@ -4058,7 +3863,6 @@
                 });
             }
 
-            // Graphique du temps de résolution (Horizontal Bar Chart as Gauge Simulation)
             const ctxResolution = document.getElementById('resolutionChart');
             if (ctxResolution) {
                 window.myResolutionChart = new Chart(ctxResolution, {
@@ -4137,7 +3941,6 @@
             }
         }
 
-        // Mise à jour des traductions pour les graphiques
         translations.fr.satisfaction_chart_title = "Répartition de la Satisfaction Client";
         translations.fr.satisfaction_chart_label_resolved_first_contact = "Problème résolu au 1er contact";
         translations.fr.satisfaction_chart_label_quick_repair = "Réparation rapide (< 2h)";
@@ -4181,24 +3984,20 @@
         translations.en.resolution_chart_label_full_install = "Full installation";
 
 
-        // Appliquer les traductions et initialiser les graphiques au chargement
         window.addEventListener('load', () => {
             if (window.location.hash === '') {
                 window.scrollTo(0, 0);
             }
 
-            // Détection de l'OS pour suggérer le téléchargement
             const userAgent = navigator.userAgent;
             const downloadCardWindows = document.getElementById('downloadCardWindows');
             const downloadCardMacOS = document.getElementById('downloadCardMacOS');
             const downloadCardLinux = document.getElementById('downloadCardLinux');
 
-            // Réinitialiser les styles pour s'assurer qu'aucune carte n'est mise en évidence par défaut
             downloadCardWindows.style.order = '';
             downloadCardMacOS.style.order = '';
             downloadCardLinux.style.order = '';
 
-            // Mettre en évidence la carte de téléchargement appropriée
             if (userAgent.includes('Win')) {
                 downloadCardWindows.style.order = '-1'; 
             } else if (userAgent.includes('Mac')) {
@@ -4207,15 +4006,12 @@
                 downloadCardLinux.style.order = '-1'; 
             }
 
-            // Mettre à jour le statut de disponibilité au chargement
             updateAvailabilityStatus();
             initializeCharts(); 
         });
 
-        // Mettre à jour les graphiques lors du changement de langue
         languageSelector.addEventListener('change', function() {
             applyLanguage(this.value);
-            // Destroy and re-initialize charts to apply new labels
             if (window.mySatisfactionChart) window.mySatisfactionChart.destroy();
             if (window.myInterventionChart) window.myInterventionChart.destroy();
             if (window.myResolutionChart) window.myResolutionChart.destroy();
