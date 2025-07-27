@@ -1984,9 +1984,9 @@ body {
     font-size: 1rem; /* Pour correspondre aux liens de navigation */
     font-weight: 700;
     cursor: pointer;
-    box-shadow:
-        0 5px 15px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.15);
+    box-shadow: 
+                0 5px 15px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.15);
     transition: all 0.3s ease;
     transform-style: preserve-3d;
     display: flex; /* Pour aligner l'icône et le texte si on veut en ajouter */
@@ -2000,9 +2000,9 @@ body {
     color: var(--color-primary);
     transform: translateY(-1px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
     border: 1px solid var(--color-primary);
-    box-shadow:
-        0 8px 25px rgba(255, 215, 0, 0.4), /* Ombre plus douce */
-        inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow: 
+                0 8px 25px rgba(255, 215, 0, 0.4), /* Ombre plus douce */
+                inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
 
@@ -2236,35 +2236,46 @@ body {
 </head>
 <body class="antialiased">
 
+    <!-- ==================================== -->
+    <!-- NOUVELLE BARRE D'EN-TÊTE -->
+    <!-- ==================================== -->
     <header class="main-header">
         <nav class="container">
+            <!-- Logo et Nom de l'entreprise -->
             <a href="#" class="logo">
                 <div class="logo-icon">
+                    <!-- Image de remplacement pour le logo -->
                     <img src="https://placehold.co/60x60/FFD700/1A1A2E?text=AIP" alt="Logo Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/60x60/FFD700/1A1A2E?text=AIP';">
                 </div>
                 <span data-translate="company_name">Atelier Informatique Potvin</span>
             </a>
 
+            <!-- Menu de navigation (unique pour desktop et mobile) -->
             <ul id="mainNavMenu" class="nav-menu">
                 <li><a href="#robit" data-translate="robit_menu">🤖 Robit Assistant Gratuit</a></li>
                 <li><a href="#services" data-translate="services_menu">Services</a></li>
                 <li><a href="#assistance" data-translate="assistance_menu">Assistance</a></li>
                 <li><a href="#contact" data-translate="contact_menu">Contact</a></li>
+                <!-- Sélecteur de langue -->
                 <li>
                     <select id="languageSelector" class="language-selector">
                         <option value="fr">🇫🇷 Français</option>
                         <option value="en">🇺🇸 English</option>
                     </select>
                 </li>
+                <!-- Bouton de mode clair/sombre -->
                 <li>
                     <button id="themeToggleBtn" class="theme-toggle-btn">
-                        <i class="fas fa-moon"></i> </button>
+                        <i class="fas fa-moon"></i> <!-- Icône par défaut pour le mode sombre -->
+                    </button>
                 </li>
+                <!-- Bouton "Mode simplifié" -->
                 <li>
                     <button id="simplifiedModeToggleBtn" class="theme-toggle-btn">
                         <i class="fas fa-universal-access"></i> <span data-translate="simplified_mode_button">Mode simplifié</span>
                     </button>
                 </li>
+                <!-- Bouton d'appel à l'action principal pour mobile (sera affiché via JS si menu actif) -->
                 <li class="mobile-only-cta">
                     <a href="tel:8193802999" class="phone-btn-mobile">
                         <i class="fas fa-phone"></i>
@@ -2273,6 +2284,7 @@ body {
                 </li>
             </ul>
             
+            <!-- Bouton menu mobile (visible sur mobile) -->
             <button id="mobileMenuBtn" class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -2280,11 +2292,15 @@ body {
     </header>
 
     <main>
+        <!-- ==================================== -->
+        <!-- SECTION HÉRO : ACCUEIL ET PRÉSENTATION -->
+        <!-- ==================================== -->
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-photo animate-fadeInUp">
                         <div class="photo-frame">
+                            <!-- Image de remplacement pour la photo de Patrick -->
                             <img src="https://placehold.co/300x300/FFD700/1A1A2E?text=Patrick+Potvin" alt="Patrick Potvin - Fondateur Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x300/FFD700/1A1A2E?text=AIP';">
                         </div>
                         <p class="photo-caption font-dancing-script">
@@ -2304,6 +2320,7 @@ body {
                             Depuis 1984, j’aide les gens à reprendre le contrôle de leur ordinateur.
                         </p>
                         
+                        <!-- Statistiques clés -->
                         <div class="hero-stats">
                             <div class="stat">
                                 <span class="stat-number font-caveat">41</span>
@@ -2319,6 +2336,7 @@ body {
                             </div>
                         </div>
 
+                        <!-- Badges de confiance visuels -->
                         <div class="badge-container">
                             <span class="trust-badge quebec">
                                 <i class="fas fa-map-marker-alt"></i> <span data-translate="badge_quebec">100% Québec</span>
@@ -2334,9 +2352,12 @@ body {
                             </span>
                         </div>
 
-                        <div class="hero-cta" style="gap: 1.5rem;"> <a href="tel:8193802999" class="btn btn-red" style="font-size: 1.5rem; padding: 25px 50px; box-shadow: 0 20px 50px rgba(220, 53, 69, 0.8);" data-translate="free_quote_button_main">
+                        <!-- Bouton d'appel à l'action principal unique -->
+                        <div class="hero-cta" style="gap: 1.5rem;"> <!-- Reduced gap for primary CTA group -->
+                            <a href="tel:8193802999" class="btn btn-red" style="font-size: 1.5rem; padding: 25px 50px; box-shadow: 0 20px 50px rgba(220, 53, 69, 0.8);" data-translate="free_quote_button_main">
                                 <i class="fas fa-phone"></i> <span data-translate="free_quote_button">DIAGNOSTIC GRATUIT - (819) 380-2999</span>
                             </a>
+                            <!-- CTA secondaires, moins proéminents -->
                             <a href="#robit" class="btn btn-purple" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="talk_to_robit_button">
                                 <i class="fas fa-robot"></i> <span data-translate="talk_to_robit_button">Parler à Robit IA</span>
                             </a>
@@ -2352,6 +2373,9 @@ body {
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION ROBIT ASSISTANT GRATUIT -->
+        <!-- ==================================== -->
         <section id="robit" class="robit-section fade-in-section">
             <div class="container">
                 <i class="fas fa-robot robit-icon-main animate-robot-float"></i>
@@ -2395,6 +2419,7 @@ body {
                     </div>
                 </div>
 
+                <!-- Placeholder pour le module de diagnostic en ligne (future extension) -->
                 <div class="mt-12">
                     <h3 class="text-2xl font-bold text-white mb-4" data-translate="online_diagnosis_title">
                         🧪 Diagnostic en ligne (Bientôt disponible !)
@@ -2413,6 +2438,9 @@ body {
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION SERVICES -->
+        <!-- ==================================== -->
         <section id="services" class="services fade-in-section">
             <div class="container">
                 <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="services_title">
@@ -2423,6 +2451,7 @@ body {
                 </p>
 
                 <div class="services-grid">
+                    <!-- Carte de service : Réparation Ordinateur -->
                     <div class="service-card animate-fadeInUp delay-200">
                         <div class="service-icon">
                             <i class="fas fa-wrench"></i>
@@ -2437,6 +2466,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de service : Formation à Domicile -->
                     <div class="service-card animate-fadeInUp delay-300">
                         <div class="service-icon">
                             <i class="fas fa-graduation-cap"></i>
@@ -2451,6 +2481,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de service : IA Robit Personnalisée -->
                     <div class="service-card animate-fadeInUp delay-400">
                         <div class="service-icon">
                             <i class="fas fa-robot"></i>
@@ -2465,6 +2496,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de service : Service à Domicile -->
                     <div class="service-card animate-fadeInUp delay-500">
                         <div class="service-icon">
                             <i class="fas fa-home"></i>
@@ -2479,6 +2511,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de service : Protection Anti-Virus -->
                     <div class="service-card animate-fadeInUp delay-600">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -2493,6 +2526,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de service : Création de Site Web -->
                     <div class="service-card animate-fadeInUp delay-700">
                         <div class="service-icon">
                             <i class="fas fa-globe"></i>
@@ -2510,6 +2544,9 @@ body {
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION D'ASSISTANCE À DISTANCE -->
+        <!-- ==================================== -->
         <section id="assistance" class="assistance-section fade-in-section">
             <div class="container">
                 <div class="text-center mb-16">
@@ -2522,6 +2559,7 @@ body {
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap: 3.5rem; /* Increased gap for more aeration */ mt-12">
+                    <!-- Carte de téléchargement Windows -->
                     <div class="download-card animate-fadeInUp delay-200" id="downloadCardWindows">
                         <div class="text-7xl">
                             <i class="fab fa-windows"></i>
@@ -2535,6 +2573,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de téléchargement macOS -->
                     <div class="download-card animate-fadeInUp delay-300" id="downloadCardMacOS">
                         <div class="text-7xl">
                             <i class="fab fa-apple"></i>
@@ -2548,6 +2587,7 @@ body {
                         </a>
                     </div>
 
+                    <!-- Carte de téléchargement Linux -->
                     <div class="download-card animate-fadeInUp delay-400" id="downloadCardLinux">
                         <div class="text-7xl">
                             <i class="fab fa-linux"></i>
@@ -2562,6 +2602,7 @@ body {
                     </div>
                 </div>
 
+                <!-- Boutons Bonus Téléchargements -->
                 <div class="flex flex-wrap justify-center gap: 3rem; /* Increased gap for more aeration */ mt-14">
                     <a href="pub/guide-assistance.pdf" class="btn btn-secondary" download data-translate="download_guide_button">
                         <i class="fas fa-file-pdf"></i> Guide de connexion à distance (PDF)
@@ -2571,6 +2612,7 @@ body {
                     </a>
                 </div>
 
+                <!-- Note de sécurité -->
                 <div class="security-note animate-fadeInUp delay-500">
                     <p>
                         <strong data-translate="security_guaranteed_strong">🔒 Sécurité garantie :</strong> <span data-translate="security_guaranteed_text">Connexion directe et sécurisée à Patrick.</span>
@@ -2588,6 +2630,9 @@ body {
         </section>
 
 
+        <!-- ==================================== -->
+        <!-- SECTION TÉMOIGNAGES -->
+        <!-- ==================================== -->
         <section id="testimonials" class="testimonials-section fade-in-section">
             <div class="container">
                 <div class="text-center mb-16">
@@ -2601,6 +2646,7 @@ body {
 
                 <div class="testimonials-carousel-wrapper" style="position: relative;">
                     <div class="testimonials-grid">
+                        <!-- Témoignage 1 -->
                         <div class="testimonial-card animate-fadeInUp delay-200">
                             <p data-translate="testimonial_1_quote">
                                 "Patrick a résolu mon problème de PC en un rien de temps ! Il est d'une patience incroyable et explique tout si clairement. Un vrai magicien de l'informatique !"
@@ -2610,6 +2656,7 @@ body {
                             </div>
                         </div>
 
+                        <!-- Témoignage 2 -->
                         <div class="testimonial-card animate-fadeInUp delay-300">
                             <p data-translate="testimonial_2_quote">
                                 "J'avais peur de l'informatique, mais les cours de Patrick sont géniaux. Il s'adapte à mon rythme et j'apprends tellement. Je le recommande à 100% !"
@@ -2619,6 +2666,7 @@ body {
                             </div>
                         </div>
 
+                        <!-- Témoignage 3 -->
                         <div class="testimonial-card animate-fadeInUp delay-400">
                             <p data-translate="testimonial_3_quote">
                                 "Service à domicile impeccable ! Mon réseau Wi-Fi est enfin stable. Patrick est rapide, efficace et très sympathique. Le meilleur technicien que j'aie eu."
@@ -2628,6 +2676,7 @@ body {
                             </div>
                         </div>
 
+                        <!-- Témoignage 4 (Exemple supplémentaire) -->
                         <div class="testimonial-card animate-fadeInUp delay-500">
                             <p data-translate="testimonial_4_quote">
                                 "Grâce à Patrick, mon vieil ordinateur a retrouvé une seconde jeunesse. Il a fait un nettoyage complet et maintenant tout est fluide. Service exceptionnel !"
@@ -2637,6 +2686,7 @@ body {
                             </div>
                         </div>
 
+                        <!-- Témoignage 5 (Exemple supplémentaire) -->
                         <div class="testimonial-card animate-fadeInUp delay-600">
                             <p data-translate="testimonial_5_quote">
                                 "J'ai eu un problème urgent un samedi matin, et Patrick a répondu présent. Il a résolu le souci à distance en un temps record. Très professionnel et rassurant."
@@ -2650,6 +2700,7 @@ body {
                     <button class="carousel-arrow carousel-arrow-right" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
 
+                <!-- Graphique de répartition de la satisfaction client -->
                 <div class="google-map-container animate-fadeInUp delay-700" style="margin-top: 6rem;"> 
                     <h3 data-translate="satisfaction_chart_title" class="font-caveat">Répartition de la Satisfaction Client</h3>
                     <div style="max-width: 400px; margin: 0 auto;">
@@ -2657,6 +2708,7 @@ body {
                     </div>
                 </div>
                 
+                <!-- Graphique des types d'interventions -->
                 <div class="google-map-container animate-fadeInUp delay-800" style="margin-top: 4rem;">
                     <h3 data-translate="intervention_chart_title" class="font-caveat">Types d'Interventions</h3>
                     <div style="max-width: 600px; margin: 0 auto;">
@@ -2664,6 +2716,7 @@ body {
                     </div>
                 </div>
 
+                <!-- Graphique du temps de résolution -->
                 <div class="google-map-container animate-fadeInUp delay-900" style="margin-top: 4rem;">
                     <h3 data-translate="resolution_chart_title" class="font-caveat">Temps de Résolution Estimé</h3>
                     <div style="max-width: 600px; margin: 0 auto;">
@@ -2673,6 +2726,9 @@ body {
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION CONTACT -->
+        <!-- ==================================== -->
         <section id="contact" class="contact fade-in-section">
             <div class="container">
                 <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="contact_title">
@@ -2686,9 +2742,11 @@ body {
                 <p class="contact-hours" data-translate="contact_phone_hours">
                     <strong data-translate="contact_phone_hours_regular_strong">Horaires réguliers :</strong> <span data-translate="contact_phone_hours_regular_text">Lun-Ven 9h-17h</span><br>
                     <strong data-translate="contact_phone_hours_emergency_strong">Urgence (surcoût) :</strong> <span data-translate="contact_phone_hours_emergency_text">7j/7 après 17h, weekends & fériés</span>
-                    <span id="availabilityStatus" class="ml-4 font-bold"></span> </p>
+                    <span id="availabilityStatus" class="ml-4 font-bold"></span> <!-- Statut de disponibilité -->
+                </p>
                 
                 <div class="contact-info-grid">
+                    <!-- Téléphone -->
                     <div class="contact-item animate-fadeInUp delay-200">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="content-text">
@@ -2696,6 +2754,7 @@ body {
                             <p>(819) 380-2999</p>
                         </div>
                     </div>
+                    <!-- Email -->
                     <div class="contact-item animate-fadeInUp delay-300">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="content-text">
@@ -2704,6 +2763,7 @@ body {
                             <p data-translate="contact_email_guarantee">Réponse sous 24h garantie</p>
                         </div>
                     </div>
+                    <!-- Adresse -->
                     <div class="contact-item animate-fadeInUp delay-400">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="content-text">
@@ -2712,6 +2772,7 @@ body {
                             <p data-translate="contact_address_radius">Service à domicile dans un rayon de 50km</p>
                         </div>
                     </div>
+                    <!-- NEQ -->
                     <div class="contact-item animate-fadeInUp delay-500">
                         <div class="contact-icon"><i class="fas fa-id-card"></i></div>
                         <div class="content-text">
@@ -2722,6 +2783,7 @@ body {
                     </div>
                 </div>
 
+                <!-- Formulaire de demande rapide -->
                 <div class="contact-form-container animate-fadeInUp delay-600">
                     <h3 data-translate="quick_request_form_title" class="font-caveat">Formulaire de demande rapide</h3>
                     <form id="contactForm" action="YOUR_FORM_SUBMISSION_URL" method="POST"> 
@@ -2744,6 +2806,7 @@ body {
                     </form>
                 </div>
 
+                <!-- Google Map -->
                 <div class="google-map-container animate-fadeInUp delay-700">
                     <h3 data-translate="map_title" class="font-caveat">Où nous trouver à Nicolet, Centre-du-Québec</h3>
                     <iframe 
@@ -2758,6 +2821,7 @@ body {
                     ></iframe>
                 </div>
 
+                <!-- Module Urgence -->
                 <div class="emergency-module animate-fadeInUp delay-800">
                     <h3 data-translate="emergency_module_title" class="font-great-vibes">
                         ⚠️ Problème urgent ? Aide immédiate !
@@ -2768,6 +2832,7 @@ body {
                     <a href="tel:8193802999" class="btn btn-red" data-translate="emergency_call_button">
                         <i class="fas fa-phone-volume"></i> Appeler Patrick en urgence
                     </a>
+                    <!-- Lien direct pour télécharger l'agent RustDesk préconfiguré (CHEMIN AJUSTÉ POUR PUB/) -->
                     <p class="mt-4 text-sm" data-translate="emergency_download_agent_note">
                         <a href="pub/rustdesk-agent.exe" download class="text-white underline hover:text-yellow-300"> 
                             Ou téléchargez l'agent d'assistance RustDesk préconfiguré ici.
@@ -2782,6 +2847,7 @@ body {
                     <a href="https://quickbooks.intuit.com/payments/YOUR_QUICKBOOKS_CLIENT_PAYMENT_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-translate="pay_invoice_button">
                         <i class="fas fa-credit-card"></i> Payer une facture
                     </a>
+                    <!-- Lien vers l'espace client (futur) -->
                     <a href="/client-area.html" class="btn btn-secondary opacity-50 cursor-not-allowed" data-translate="client_area_button">
                         <i class="fas fa-user-circle"></i> Espace Client (Bientôt)
                     </a>
@@ -2790,6 +2856,9 @@ body {
         </section>
     </main>
 
+    <!-- ==================================== -->
+    <!-- PIED DE PAGE -->
+    <!-- ==================================== -->
     <footer class="footer">
         <div class="container">
             <p>
@@ -2819,10 +2888,14 @@ body {
         </div>
     </footer>
 
+    <!-- ==================================== -->
+    <!-- Bouton flottant Robit (Nouveau) -->
+    <!-- ==================================== -->
     <button id="floatingRobitBtn" class="floating-robit-btn" data-translate="floating_robit_btn_text">
         <i class="fas fa-robot"></i>
     </button>
 
+    <!-- JAVASCRIPT INTÉGRÉ ICI -->
     <script>
         // ====================================
         // JavaScript pour les fonctionnalités interactives du site
@@ -3275,7 +3348,6 @@ body {
                 downloadCardLinux.style.order = '-1'; 
             }
 
-            // Mettre à jour le statut de disponibilité au chargement
             updateAvailabilityStatus();
         });
 
