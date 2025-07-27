@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">Atelier Informatique Potvin</title>
+    <meta name="description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
+
+    <link rel="icon" href="https://placehold.co/32x32/FFD700/1A1A2E?text=AIP" type="image/png">
+
+    <meta property="og:title" content="Atelier Informatique Potvin - Votre Expert Local">
+    <meta property="og:description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
+    <meta property="og:image" content="https://placehold.co/1200x630/FFD700/1A1A2E?text=Atelier+Informatique+Potvin">
+    <meta property="og:url" content="https://www.votre-site.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_CA">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="AIP">
+    <link rel="apple-touch-icon" href="https://placehold.co/192x192/FFD700/1A1A2E?text=AIP">
+    <link rel="manifest" href="manifest.json">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;600;700&family=Allura&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Atelier Informatique Potvin (AIP)",
+      "image": "https://placehold.co/300x300/FFD700/1A1A2E?text=Patrick+Potvin",
+      "url": "https://www.votre-site.com", 
+      "telephone": "+18193802999",
+      "email": "mailto:patrick@atelierpotvin.ca",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "462 rue D.-N.-Saint-Cyr",
+        "addressLocality": "Nicolet",
+        "addressRegion": "QC",
+        "postalCode": "J3T 1H3",
+        "addressCountry": "CA"
+      }
+      // Le reste du JSON est correct
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="antialiased">
+
+    <header class="main-header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <img src="https://placehold.co/60x60/FFD700/1A1A2E?text=AIP" alt="Logo Atelier Informatique Potvin" loading="lazy">
+                </div>
+                <span data-translate="company_name">Atelier Informatique Potvin</span>
+            </a>
+
+            <ul id="mainNavMenu" class="nav-menu">
+                <li><a href="#robit" data-translate="robit_menu">🤖 Robit Assistant Gratuit</a></li>
+                <li><a href="#services" data-translate="services_menu">Services</a></li>
+                <li><a href="#assistance" data-translate="assistance_menu">Assistance</a></li>
+                <li><a href="#contact" data-translate="contact_menu">Contact</a></li>
+                <li>
+                    <select id="languageSelector" class="language-selector">
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="en">🇺🇸 English</option>
+                    </select>
+                </li>
+                <li>
+                    <button id="themeToggleBtn" class="theme-toggle-btn">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+                <li>
+                    <button id="simplifiedModeToggleBtn" class="theme-toggle-btn">
+                        <i class="fas fa-universal-access"></i> <span data-translate="simplified_mode_button">Mode simplifié</span>
+                    </button>
+                </li>
+                <li class="mobile-only-cta">
+                    <a href="tel:8193802999" class="phone-btn-mobile">
+                        <i class="fas fa-phone"></i>
+                        <span data-translate="call_to_action_header">(819) 380-2999</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <button id="mobileMenuBtn" class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-photo animate-fadeInUp">
+                        <div class="photo-frame">
+                            <img src="https://placehold.co/300x300/FFD700/1A1A2E?text=Patrick+Potvin" alt="Patrick Potvin - Fondateur Atelier Informatique Potvin" loading="lazy">
+                        </div>
+                        <p class="photo-caption font-dancing-script">
+                            <i class="fas fa-user-tie"></i> Patrick Potvin<br>
+                            <span data-translate="founder_expert">Fondateur • Expert depuis 1984</span>
+                        </p>
+                    </div>
+                    
+                    <div class="hero-text animate-fadeInUp delay-100">
+                        <span class="hero-badge font-dancing-script" data-translate="hero_tagline">
+                           ❤️ Passionné depuis l'âge de 9 ans
+                        </span>
+                        <h1 class="animate-title-glow font-great-vibes" data-translate="hero_title">
+                            Salut, moi c'est Patrick ! Votre expert informatique de confiance.
+                        </h1>
+                        <p class="hero-subtitle font-dancing-script" data-translate="hero_description">
+                            Depuis 1984, j’aide les gens à reprendre le contrôle de leur ordinateur.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number font-caveat">41</span>
+                                <span class="stat-label" data-translate="years_experience">Années d'expérience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number font-caveat">2500+</span>
+                                <span class="stat-label" data-translate="clients_helped">Clients aidés</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number font-caveat">7j/7</span>
+                                <span class="stat-label" data-translate="available">Disponible</span>
+                            </div>
+                        </div>
+
+                        <div class="badge-container">
+                             <span class="trust-badge quebec"><i class="fas fa-map-marker-alt"></i> <span data-translate="badge_quebec">100% Québec</span></span>
+                            <span class="trust-badge"><i class="fas fa-shield-alt"></i> <span data-translate="badge_secure">Sécurisé – Aucun accès sans accord</span></span>
+                            <span class="trust-badge"><i class="fas fa-laptop-code"></i> <span data-translate="badge_tested">Testé sur +1000 machines</span></span>
+                            <span class="trust-badge"><i class="fas fa-desktop"></i> <span data-translate="badge_compatible">Compatible : Windows / macOS / Linux</span></span>
+                        </div>
+
+                        <div class="hero-cta" style="gap: 1.5rem;">
+                            <a href="tel:8193802999" class="btn btn-red" style="font-size: 1.5rem; padding: 25px 50px;" data-translate="free_quote_button_main">
+                                <i class="fas fa-phone"></i> <span data-translate="free_quote_button">DIAGNOSTIC GRATUIT - (819) 380-2999</span>
+                            </a>
+                            <a href="#robit" class="btn btn-purple" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="talk_to_robit_button">
+                                <i class="fas fa-robot"></i> <span data-translate="talk_to_robit_button_text">Parler à Robit IA</span>
+                            </a>
+                            <a href="#assistance" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="download_agent_button">
+                                <i class="fas fa-download"></i> <span data-translate="download_agent_button_text">Télécharger mon agent sécurisé</span>
+                            </a>
+                        </div>
+                        <p class="text-lg text-[var(--color-text-warm)] mt-4 text-center" data-translate="urgent_call_note">
+                            Pour toute urgence informatique, Patrick est disponible 7j/7. N'attendez pas !
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact fade-in-section">
+            <div class="container">
+                <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="contact_title">
+                    Appelez Patrick pour régler vos tracas !
+                </h2>
+                <a href="tel:8193802999" class="phone-big font-caveat animate-phonePulse">
+                    <i class="fas fa-phone"></i> <span data-translate="call_to_action_header">(819) 380-2999</span>
+                </a>
+                <p class="contact-hours" data-translate="contact_phone_hours">
+                    <strong data-translate="contact_phone_hours_regular_strong">Horaires réguliers :</strong> <span data-translate="contact_phone_hours_regular_text">Lun-Ven 9h-17h</span><br>
+                    <strong data-translate="contact_phone_hours_emergency_strong">Urgence (surcoût) :</strong> <span data-translate="contact_phone_hours_emergency_text">7j/7 après 17h, weekends & fériés</span>
+                    <span id="availabilityStatus" class="ml-4 font-bold"></span>
+                </p>
+                
+                <div class="contact-form-container animate-fadeInUp delay-600">
+                    <h3 data-translate="quick_request_form_title" class="font-caveat">Formulaire de demande rapide</h3>
+                    <form id="contactForm" action="https://formspree.io/f/VOTRE_CODE_FORMSPREE" method="POST">
+                        <label for="name" data-translate="form_name_label">Nom :</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="phone" data-translate="form_phone_label">Téléphone :</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="email" data-translate="form_email_label">Email (facultatif) :</label>
+                        <input type="email" id="email" name="email">
+
+                        <label for="problem" data-translate="form_problem_description_label">Description du problème :</label>
+                        <textarea id="problem" name="problem" rows="5" required></textarea>
+
+                        <button type="submit" class="btn btn-primary" data-translate="form_submit_button">
+                            <i class="fas fa-paper-plane"></i> Envoyer ma demande
+                        </button>
+                    </form>
+                </div>
+
+                <div class="google-map-container animate-fadeInUp delay-700">
+                    <h3 data-translate="map_title" class="font-caveat">Où nous trouver à Nicolet, Centre-du-Québec</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.186834162125!2d-72.6186835238249!3d46.28296797110195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc7c03058814def%3A0x1b64d7d3550e7552!2s462%20Rue%20Saint%20Jean%20Baptiste%2C%20Nicolet%2C%20QC%20J3T%201H3!5e0!3m2!1sfr!2sca!4v1721986493393!5m2!1sfr!2sca"
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Localisation de l'Atelier Informatique Potvin sur Google Maps à Nicolet"
+                    ></iframe>
+                </div>
+                
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                © 2025 <span data-translate="footer_copyright_company">Atelier Informatique Potvin (AIP)</span> • <span data-translate="footer_copyright_patrick">Patrick Potvin, à votre service depuis 1984 ❤️</span>
+            </p>
+            <p class="ai-credit">
+                <span data-translate="footer_ai_creation font-dancing-script">🤖 Site créé avec l'aide d'un assistant • Design moderne & chaleureux 2025</span>
+            </p>
+            <div class="social-links mt-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <div class="legal-links mt-4">
+                 <a href="#" class="text-sm text-gray-400 hover:text-yellow-300 mr-4" data-translate="privacy_policy_link">Politique de confidentialité</a>
+                <a href="#" class="text-sm text-gray-400 hover:text-yellow-300" data-translate="terms_of_service_link">Conditions d'utilisation</a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="floatingRobitBtn" class="floating-robit-btn" data-translate="floating_robit_btn_text">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
