@@ -7,14 +7,14 @@
     <meta name="description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
 
     <link rel="icon" href="pub/logo-aip.jpg" type="image/jpeg">
-    <link rel="apple-touch-icon" href="pub/logo-aip.jpg">
-
-    <meta property="og:title" content="Atelier Informatique Potvin - Votre Expert Local">
+    <link rel="apple-touch-icon" href="pub/apple-touch-icon.png"> <meta property="og:title" content="Atelier Informatique Potvin - Votre Expert Local">
     <meta property="og:description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
-    <meta property="og:image" content="pub/image-4.jpg"> <meta property="og:url" content="https://www.votre-site.com"> <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_CA"> <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta property="og:image" content="pub/image-4.jpg"> 
+    <meta property="og:url" content="https://www.votre-site.com"> <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_CA"> <meta name="mobile-web-app-capable" content="yes"> <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="AIP">
+    <link rel="manifest" href="pub/manifest.json"> 
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;600;700&family=Allura&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMwLtVKj7ztYw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/greatvibes/v14/RWmMoKWR9v4MdgY_r5SeWg.woff2" as="font" type="font/woff2" crossorigin>
@@ -30,8 +30,11 @@
       "@context": "http://schema.org",
       "@type": "LocalBusiness",
       "name": "Atelier Informatique Potvin (AIP)",
-      "image": "pub/image-4.jpg", "url": "https://www.votre-site.com", "telephone": "+18193802999",
-      "email": "mailto:patrick@atelierpotvin.ca", "address": {
+      "image": "pub/image-4.jpg", 
+      "url": "https://www.votre-site.com", 
+      "telephone": "+18193802999",
+      "email": "mailto:patrick@atelierpotvin.ca", 
+      "address": {
         "@type": "PostalAddress",
         "streetAddress": "462 rue D.-N.-Saint-Cyr",
         "addressLocality": "Nicolet",
@@ -148,7 +151,8 @@
           }
         ]
       },
-      "hasMap": "https://www.google.com/maps/place/462+Rue+D.-N.-Saint-Cyr,+Nicolet,+QC+J3T+1H3", "knowsAbout": [
+      "hasMap": "https://www.google.com/maps/place/462+Rue+D.-N.-Saint-Cyr,+Nicolet,+QC+J3T+1H3", 
+      "knowsAbout": [
         "Computer Repair", "IT Support", "Remote Assistance", "Antivirus Protection", "Computer Courses", "Web Design", "Home Automation"
       ],
       "areaServed": {
@@ -189,592 +193,1638 @@
     }
     </script>
 
-    <link rel="stylesheet" href="pub/style.css">
-</head>
-<body class="antialiased">
+    <style>
+        /* ==================================== */
+        /* Variables CSS pour la palette de couleurs */
+        /* ==================================== */
+        :root {
+            --color-primary: #FFD700; /* Or */
+            --color-secondary: #FF6B35; /* Orange */
+            --color-accent: #4ECDC4; /* Cyan/Turquoise */
+            --color-bg-dark: #1A1A2E; /* Slightly lighter dark blue */
+            --color-bg-medium: #2C3E50; /* Medium dark blue */
+            --color-bg-light: #34495E; /* Lighter dark blue */
+            --color-text-light: #FFFFFF;
+            --color-text-medium: #F0F0F0;
+            --color-text-warm: #FFE082; /* Jaune chaud */
+            --color-text-dark: #2C3E50; /* Gris-bleu foncé */
+            --border-color-dark: #4A6072; /* Couleur des bordures */
+            --green-btn-start: #28a745;
+            --green-btn-mid: #20c997;
+            --green-btn-end: #17a2b8;
+            --blue-btn-start: #007bff;
+            --blue-btn-mid: #6610f2;
+            --blue-btn-end: #e83e8c;
+            --whatsapp-start: #25D366;
+            --whatsapp-mid: #128C7E;
+            --whatsapp-end: #075E54;
+            --purple-btn-start: #8A2BE2; /* Violet */
+            --purple-btn-mid: #9932CC;
+            --purple-btn-end: #BA55D3;
+            --red-btn-start: #dc3545; /* Rouge pour urgence */
+            --red-btn-end: #b82c3d;
 
-    <header class="main-header">
-        <nav class="container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <img src="pub/logo-aip.jpg" alt="Logo Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/60x60/FFD700/1A1A2E?text=AIP';">
-                </div>
-                <span data-translate="company_name">Atelier Informatique Potvin</span>
-            </a>
+            /* Couleurs pour le mode clair */
+            --light-color-primary: #B8860B; /* Or plus doux, plus de contraste */
+            --light-color-secondary: #CD5C08; /* Orange plus foncé */
+            --light-color-accent: #008080; /* Turquoise plus foncé */
+            --light-color-bg-dark: #F8F8F8; /* Très clair */
+            --light-color-bg-medium: #F0F0F0; /* Gris très clair */
+            --light-color-bg-light: #E8E8E8; /* Gris clair */
+            --light-color-text-light: #222222; /* Texte plus foncé */
+            --light-color-text-medium: #444444; /* Texte moyen plus foncé */
+            --light-color-text-warm: #8B4513; /* Marron foncé */
+            --light-color-text-dark: #FFFFFF; /* Utilisé pour le texte sur les éléments sombres en mode clair */
+            --light-border-color-dark: #AAAAAA; /* Bordures plus visibles */
+        }
 
-            <ul id="mainNavMenu" class="nav-menu">
-                <li><a href="#robit" data-translate="robit_menu">🤖 Robit Assistant Gratuit</a></li>
-                <li><a href="#services" data-translate="services_menu">Services</a></li>
-                <li><a href="#assistance" data-translate="assistance_menu">Assistance</a></li>
-                <li><a href="#contact" data-translate="contact_menu">Contact</a></li>
-                <li>
-                    <select id="languageSelector" class="language-selector">
-                        <option value="fr">🇫🇷 Français</option>
-                        <option value="en">🇺🇸 English</option>
-                    </select>
-                </li>
-                <li>
-                    <button id="themeToggleBtn" class="theme-toggle-btn">
-                        <i class="fas fa-moon"></i> </button>
-                </li>
-                <li>
-                    <button id="simplifiedModeToggleBtn" class="theme-toggle-btn">
-                        <i class="fas fa-universal-access"></i> <span data-translate="simplified_mode_button">Mode simplifié</span>
-                    </button>
-                </li>
-                <li class="mobile-only-cta">
-                    <a href="tel:8193802999" class="phone-btn-mobile">
-                        <i class="fas fa-phone"></i>
-                        <span data-translate="call_to_action_header">(819) 380-2999</span>
-                    </a>
-                </li>
-            </ul>
-            
-            <button id="mobileMenuBtn" class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+        /* Mode clair */
+        body.light-mode {
+            --color-primary: var(--light-color-primary);
+            --color-secondary: var(--light-color-secondary);
+            --color-accent: var(--light-color-accent);
+            --color-bg-dark: var(--light-color-bg-dark);
+            --color-bg-medium: var(--light-color-bg-medium);
+            --color-bg-light: var(--light-color-bg-light);
+            --color-text-light: var(--light-color-text-light);
+            --color-text-medium: var(--light-color-text-medium);
+            --color-text-warm: var(--light-color-text-warm);
+            --color-text-dark: var(--light-color-text-dark);
+            --border-color-dark: var(--light-border-color-dark);
+            background: linear-gradient(135deg, var(--light-color-bg-dark) 0%, var(--light-color-bg-medium) 50%, var(--light-color-bg-light) 100%);
+        }
 
-    <main>
-        <section id="hero" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-photo animate-fadeInUp">
-                        <div class="photo-frame">
-                            <img src="pub/image-4.jpg" alt="Patrick Potvin - Fondateur Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x300/FFD700/1A1A2E?text=AIP';">
-                        </div>
-                        <p class="photo-caption font-dancing-script">
-                            <i class="fas fa-user-tie"></i> Patrick Potvin<br>
-                            <span data-translate="founder_expert">Fondateur • Expert depuis 1984</span>
-                        </p>
-                    </div>
-                    
-                    <div class="hero-text animate-fadeInUp delay-100">
-                        <span class="hero-badge font-dancing-script" data-translate="hero_tagline">
-                           ❤️ Passionné depuis l'âge de 9 ans
-                        </span>
-                        <h1 class="animate-title-glow font-great-vibes" data-translate="hero_title">
-                            Salut, moi c'est Patrick ! Votre expert informatique de confiance.
-                        </h1>
-                        <p class="hero-subtitle font-dancing-script" data-translate="hero_description">
-                            Depuis 1984, j’aide les gens à reprendre le contrôle de leur ordinateur.
-                        </p>
-                        
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <span class="stat-number font-caveat">41</span>
-                                <span class="stat-label" data-translate="years_experience">Années d'expérience</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number font-caveat">2500+</span>
-                                <span class="stat-label" data-translate="clients_helped">Clients aidés</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number font-caveat">7j/7</span>
-                                <span class="stat-label" data-translate="available">Disponible</span>
-                            </div>
-                        </div>
+        /* Mode simplifié pour les aînés */
+        body.simplified-mode {
+            font-size: 1.375rem; /* 22px base font size for simplified mode */
+        }
 
-                        <div class="badge-container">
-                            <span class="trust-badge quebec">
-                                <i class="fas fa-map-marker-alt"></i> <span data-translate="badge_quebec">100% Québec</span>
-                            </span>
-                            <span class="trust-badge">
-                                <i class="fas fa-shield-alt"></i> <span data-translate="badge_secure">Sécurisé – Aucun accès sans accord</span>
-                            </span>
-                            <span class="trust-badge">
-                                <i class="fas fa-laptop-code"></i> <span data-translate="badge_tested">Testé sur +1000 machines</span>
-                            </span>
-                            <span class="trust-badge">
-                                <i class="fas fa-desktop"></i> <span data-translate="badge_compatible">Compatible : Windows / macOS / Linux</span>
-                            </span>
-                        </div>
+        body.simplified-mode .hero-subtitle,
+        body.simplified-mode .hero-stats,
+        body.simplified-mode .robit-icon-main,
+        body.simplified-mode .robit-chat-container,
+        body.simplified-mode .services-grid .service-card:hover::before,
+        body.simplified-mode .service-card:hover .service-icon,
+        body.simplified-mode .download-card:hover,
+        body.simplified-mode .contact-item:hover,
+        body.simplified-mode .contact-item:hover .contact-icon,
+        body.simplified-mode .testimonial-card:hover,
+        body.simplified-mode .phone-big,
+        body.simplified-mode .emergency-module,
+        body.simplified-mode .floating-robit-btn {
+            animation: none !important; /* Disable complex animations */
+            transform: none !important; /* Disable complex transforms */
+            box-shadow: none !important; /* Simplify shadows */
+            filter: none !important; /* Remove filters */
+        }
 
-                        <div class="hero-cta" style="gap: 1.5rem;"> <a href="tel:8193802999" class="btn btn-red" style="font-size: 1.5rem; padding: 25px 50px; box-shadow: 0 20px 50px rgba(220, 53, 69, 0.8);" data-translate="free_quote_button_main">
-                                <i class="fas fa-phone"></i> <span data-translate="free_quote_button">DIAGNOSTIC GRATUIT - (819) 380-2999</span>
-                            </a>
-                            <a href="#robit" class="btn btn-purple" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="talk_to_robit_button">
-                                <i class="fas fa-robot"></i> <span data-translate="talk_to_robit_button_text">Parler à Robit IA</span>
-                            </a>
-                            <a href="#assistance" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="download_agent_button">
-                                <i class="fas fa-download"></i> <span data-translate="download_agent_button_text">Télécharger mon agent sécurisé</span>
-                            </a>
-                        </div>
-                        <p class="text-lg text-[var(--color-text-warm)] mt-4 text-center" data-translate="urgent_call_note">
-                            Pour toute urgence informatique, Patrick est disponible 7j/7. N'attendez pas !
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* Contraste renforcé pour le mode simplifié */
+        body.simplified-mode {
+            --color-text-light: #000000; /* Texte noir */
+            --color-text-medium: #333333;
+            --color-text-warm: #666666;
+            --color-text-dark: #FFFFFF; /* Texte blanc sur éléments sombres */
+            --color-bg-dark: #FFFFFF;
+            --color-bg-medium: #F0F0F0;
+            --color-bg-light: #E0E0E0;
+            --border-color-dark: #888888;
+            background: #FFFFFF !important; /* Fond blanc uni */
+        }
 
-        <section id="robit" class="robit-section fade-in-section">
-            <div class="container">
-                <i class="fas fa-robot robit-icon-main animate-robot-float"></i>
-                <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="robit_title">
-                    Robit - Votre Assistant Intelligent
-                </h2>
-                <p class="section-subtitle animate-fadeInUp delay-100 font-dancing-script" data-translate="robit_description">
-                    Besoin d'une réponse rapide à une question informatique ? Votre ordinateur fait des siennes ? Discutez avec Robit, votre assistant virtuel intelligent.
-                </p>
-                <span class="inline-block bg-gradient-to-r from-green-500 to-green-700 text-white font-extrabold py-4 px-10 rounded-full text-xl md:text-2xl font-caveat shadow-xl shadow-green-500 animate-pulse animate-fadeInUp delay-200" data-translate="robit_free_tag">
-                    💎 100% GRATUIT & INSTANTANÉ 💎
-                </span>
+        body.simplified-mode .main-header,
+        body.simplified-mode .robit-chat-container,
+        body.simplified-mode .chat-input-area,
+        body.simplified-mode .google-map-container,
+        body.simplified-mode .emergency-module,
+        body.simplified-mode .footer {
+            background: #E0E0E0 !important; /* Fond plus clair pour les blocs */
+            border-color: #AAAAAA !important;
+            box-shadow: none !important;
+        }
 
-                <div class="robit-chat-container fade-in-section" id="robitChatContainer">
-                    <div class="chat-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="display: block; width: 15px; height: 15px; background-color: green; border-radius: 50%; animation: pulse 2s infinite;"></span>
-                            <span data-translate="robit_status">🤖 Robit Assistant - En ligne et prêt à aider !</span>
-                        </div>
-                    </div>
+        body.simplified-mode .btn {
+            background: #007bff !important; /* Boutons bleus solides */
+            color: white !important;
+            box-shadow: none !important;
+            border: 1px solid #0056b3 !important;
+        }
 
-                    <div id="chatMessages" class="chat-messages">
-                        <div class="message bot-message animate-messageSlide">
-                            <strong>🎉 <span data-translate="robit_initial_greeting_strong">Salut ! Je suis Robit, l'assistant super intelligent de Patrick !</span></strong><br><br>
-                            <strong>💻 <span data-translate="robit_pc_slow_strong">Votre PC rame ?</span></strong> <span data-translate="robit_pc_slow_text">Je vous donne des solutions immédiates !</span><br>
-                            <strong>🛡️ <span data-translate="robit_virus_strong">Problème de virus ?</span></strong> <span data-translate="robit_virus_text">Je vous guide étape par étape !</span><br>
-                            <strong>📱 <span data-translate="robit_tablet_strong">Tablette mystérieuse ?</span></strong> <span data-translate="robit_tablet_text">Je vous explique tout simplement !</span><br>
-                            <strong>🎓 <span data-translate="robit_learn_strong">Envie d'apprendre ?</span></strong> <span data-translate="robit_learn_text">Je vous forme avec patience !</span><br><br>
-                            <strong>✨ <span data-translate="robit_ask_question_strong">Posez-moi votre question et je vous donne une réponse personnalisée GRATUITE !</span></strong><br><br>
-                            🆘 <strong><span data-translate="robit_emergency_strong">Urgence ? Appelez Patrick directement :</span> <span data-translate="robit_phone_number">(819) 380-2999</span></strong><br>
-                            🏠 <strong><span data-translate="robit_home_service_strong">Service à domicile disponible • Diagnostic gratuit inclus</span></strong>
-                        </div>
-                    </div>
+        body.simplified-mode .btn-primary {
+            background: #28a745 !important;
+        }
+        body.simplified-mode .btn-secondary {
+            background: #6c757d !important;
+        }
+        body.simplified-mode .btn-purple {
+            background: #6f42c1 !important;
+        }
+        body.simplified-mode .btn-red {
+            background: #dc3545 !important;
+        }
 
-                    <div class="chat-input-area">
-                        <input type="text" id="chatInput" placeholder="🤖 Posez votre question à Robit..." data-fr-placeholder="🤖 Posez votre question à Robit... (Ex: Mon PC est lent, que faire ?)" data-en-placeholder="🤖 Ask Robit your question... (Ex: My PC is slow, what to do?)">
-                        <button id="sendBtn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-translate="send_button">Envoyer</span>
-                        </button>
-                    </div>
-                </div>
+        body.simplified-mode .service-price {
+            background: #f8f9fa !important;
+            color: #333333 !important;
+            border-color: #cccccc !important;
+        }
 
-                <div class="mt-12">
-                    <h3 class="text-2xl font-bold text-white mb-4" data-translate="online_diagnosis_title">
-                        🧪 Diagnostic en ligne (Bientôt disponible !)
-                    </h3>
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto" data-translate="online_diagnosis_description">
-                        Un outil simple pour scanner la mémoire, le disque ou le processeur à distance et obtenir un mini-rapport gratuit.
-                    </p>
-                    <div class="flex flex-col items-center mt-6">
-                        <input type="email" id="diagnosisEmail" placeholder="Votre email pour être notifié..." class="w-full max-w-sm p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:border-yellow-500 mb-4">
-                        <button id="notifyMeBtn" class="btn btn-secondary opacity-50 cursor-not-allowed" data-translate="online_diagnosis_button">
-                            <i class="fas fa-bell"></i> Notifiez-me du lancement !
-                        </button>
-                        <p id="diagnosisMessage" class="text-sm mt-2"></p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        /* ==================================== */
+        /* Styles de base */
+        /* ==================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-        <section id="services" class="services fade-in-section">
-            <div class="container">
-                <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="services_title">
-                    Comment je peux vous aider
-                </h2>
-                <p class="section-subtitle animate-fadeInUp delay-100 font-dancing-script" data-translate="services_description">
-                    Des services pensés pour vous, avec la patience et l'expertise que vous méritez.
-                </p>
+        html {
+            scroll-behavior: smooth;
+        }
 
-                <div class="services-grid">
-                    <div class="service-card animate-fadeInUp delay-200">
-                        <div class="service-icon">
-                            <i class="fas fa-wrench"></i>
-                        </div>
-                        <h3 data-translate="repair_title" class="font-caveat">Réparation Ordinateur</h3>
-                        <p data-translate="repair_description">
-                            PC lents, virus, écrans bleus... Je trouve le problème et je le règle, en vous expliquant tout étape par étape.
-                        </p>
-                        <span class="service-price font-caveat" data-translate="repair_price">45$/h – 1ère heure incluse</span>
-                        <a href="tel:8193802999" class="btn btn-primary" data-translate="repair_button">
-                            Patrick, venez voir ça !
-                        </a>
-                    </div>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem; /* Base font size increased for accessibility (18px) */
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 50%, var(--color-bg-light) 100%);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            perspective: 1200px; /* Pour les transformations 3D */
+        }
 
-                    <div class="service-card animate-fadeInUp delay-300">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 data-translate="courses_title" class="font-caveat">Formation à Domicile</h3>
-                        <p data-translate="courses_description">
-                            Patience, clarté, à votre rythme. Je vous montre comment utiliser votre ordinateur, tablette ou cellulaire. <strong data-translate="courses_emphasis_elders">Formations adaptées aux aînés et débutants, sans pression !</strong>
-                        </p>
-                        <span class="service-price font-caveat" data-translate="courses_price">60$ de l'heure • Pas de pression</span>
-                        <a href="tel:8193802999" class="btn btn-primary" data-translate="courses_button">
-                            Apprenez avec Patrick
-                        </a>
-                    </div>
+        /* Styles de police calligraphiques */
+        .font-caveat {
+            font-family: 'Caveat', cursive;
+        }
+        .font-great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+        .font-dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+        .font-allura {
+            font-family: 'Allura', cursive;
+        }
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
 
-                    <div class="service-card animate-fadeInUp delay-400">
-                        <div class="service-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 data-translate="robit_service_title" class="font-caveat">IA Robit Personnalisée</h3>
-                        <p data-translate="robit_service_description">
-                            Posez vos questions – Robit vous répond. Un assistant intelligent toujours là pour vous aider avec vos tracas informatiques.
-                        </p>
-                        <span class="service-price font-caveat" data-translate="robit_service_price">Premier contact gratuit</span>
-                        <a href="#robit" class="btn btn-purple" data-translate="robit_service_button">
-                            Parler à Robit
-                        </a>
-                    </div>
-
-                    <div class="service-card animate-fadeInUp delay-500">
-                        <div class="service-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3 data-translate="home_service_title" class="font-caveat">Service à Domicile</h3>
-                        <p data-translate="home_service_description">
-                            Je viens chez vous avec tout mon kit d'outils. Vous restez confortable dans votre salon pendant que je m'occupe de vos tracas informatiques.
-                        </p>
-                        <span class="service-price font-caveat" data-translate="home_service_price">Déplacement: 25$ seulement</span>
-                        <a href="tel:8193802999" class="btn btn-primary" data-translate="home_service_button">
-                            Prenez rendez-vous
-                        </a>
-                    </div>
-
-                    <div class="service-card animate-fadeInUp delay-600">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 data-translate="antivirus_title" class="font-caveat">Protection Anti-Virus</h3>
-                        <p data-translate="antivirus_description">
-                            Fini les pop-ups et les arnaques ! J'installe une protection solide et je vous montre comment naviguer sur internet en toute sécurité.
-                        </p>
-                        <span class="service-price font-caveat" data-translate="antivirus_price">Package complet: 125$</span>
-                        <a href="https://www.virustotal.com/gui/home/upload" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-translate="virustotal_link">
-                            <i class="fas fa-external-link-alt"></i> Vérifier un fichier avec VirusTotal
-                        </a>
-                    </div>
-
-                    <div class="service-card animate-fadeInUp delay-700">
-                        <div class="service-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <h3 data-translate="website_title" class="font-caveat">Création de Site Web</h3>
-                        <p data-translate="website_description">
-                            Besoin d'une présence en ligne ? Je conçois des sites web personnalisés pour les petites entreprises et professionnels, à votre image.
-                        </p>
-                        <span class="service-price font-caveat" data-translate="website_price">Sur devis personnalisé</span>
-                        <a href="tel:8193802999" class="btn btn-primary" data-translate="website_button">
-                            Demandez un devis !
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="assistance" class="assistance-section fade-in-section">
-            <div class="container">
-                <div class="text-center mb-16">
-                    <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="assistance_title">
-                        📡 Assistance à Distance Sécurisée
-                    </h2>
-                    <p class="section-subtitle animate-fadeInUp delay-100 font-dancing-script" data-translate="assistance_description">
-                        Téléchargez l'outil sécurisé pour permettre à Patrick de vous aider immédiatement, où que vous soyez.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap: 3.5rem; /* Increased gap for more aeration */ mt-12">
-                    <div class="download-card animate-fadeInUp delay-200" id="downloadCardWindows">
-                        <div class="text-7xl">
-                            <i class="fab fa-windows"></i>
-                        </div>
-                        <h3 data-translate="windows_title" class="font-caveat">Pour Windows</h3>
-                        <p data-translate="windows_compatibility">
-                            Compatible avec Windows Vista, 7, 8, 10 et 11.
-                        </p>
-                        <a href="pub/download-windows.exe" class="btn btn-primary download-os-btn" download data-translate="download_windows_button" data-os="windows"> <i class="fas fa-download"></i> Télécharger pour Windows
-                        </a>
-                    </div>
-
-                    <div class="download-card animate-fadeInUp delay-300" id="downloadCardMacOS">
-                        <div class="text-7xl">
-                            <i class="fab fa-apple"></i>
-                        </div>
-                        <h3 data-translate="macos_title" class="font-caveat">Pour macOS</h3>
-                        <p data-translate="macos_compatibility">
-                            Compatible avec macOS 10.12 (Sierra) et versions plus récentes.
-                        </p>
-                        <a href="pub/download-mac.zip" class="btn btn-primary download-os-btn" download data-translate="download_macos_button" data-os="macos"> <i class="fas fa-download"></i> Télécharger pour macOS
-                        </a>
-                    </div>
-
-                    <div class="download-card animate-fadeInUp delay-400" id="downloadCardLinux">
-                        <div class="text-7xl">
-                            <i class="fab fa-linux"></i>
-                        </div>
-                        <h3 data-translate="linux_title" class="font-caveat">Pour Linux</h3>
-                        <p data-translate="linux_compatibility">
-                            Compatible avec la plupart des distributions Linux.
-                        </p>
-                        <a href="/downloads/agent-linux.AppImage" class="btn btn-primary download-os-btn" download data-translate="download_linux_button" data-os="linux">
-                            <i class="fas fa-download"></i> Télécharger pour Linux
-                        </a>
-                    </div>
-                </div>
-
-                <div class="flex flex-wrap justify-center gap: 3rem; /* Increased gap for more aeration */ mt-14">
-                    <a href="/pdf/guide-assistance.pdf" class="btn btn-secondary" download data-translate="download_guide_button">
-                        <i class="fas fa-file-pdf"></i> Guide de connexion à distance (PDF)
-                    </a>
-                    <a href="/downloads/all-agents.zip" class="btn btn-secondary" download data-translate="download_all_agents_button">
-                        <i class="fas fa-file-archive"></i> Tous les agents (ZIP)
-                    </a>
-                </div>
-
-                <div class="security-note animate-fadeInUp delay-500">
-                    <p>
-                        <strong data-translate="security_guaranteed_strong">🔒 Sécurité garantie :</strong> <span data-translate="security_guaranteed_text">Connexion directe et sécurisée à Patrick.</span>
-                    </p>
-                    <p>
-                        <strong data-translate="important_note_strong">Note importante :</strong> <span data-translate="important_note_text">Votre antivirus peut détecter l'agent comme un "faux positif". C'est un comportement normal pour ce type d'outil d'assistance à distance. Vous pouvez l'ignorer en toute confiance.</span>
-                        <a href="/faq-false-positive.html" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline text-sm ml-2" data-translate="learn_more_false_positive">(En savoir plus)</a>
-                    </p>
-                    <p class="mt-4">
-                        <img src="https://www.virustotal.com/gui/images/logo.svg" alt="VirusTotal Logo" loading="lazy" style="height: 25px; display: inline-block; vertical-align: middle; margin-right: 10px;">
-                        <span data-translate="virustotal_verified_text">Vérifié et approuvé par les standards de sécurité.</span>
-                    </p>
-                </div>
-            </div>
-        </section>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
 
-        <section id="testimonials" class="testimonials-section fade-in-section">
-            <div class="container">
-                <div class="text-center mb-16">
-                    <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="testimonials_title">
-                        Ce que mes clients disent de moi
-                    </h2>
-                    <p class="section-subtitle animate-fadeInUp delay-100 font-dancing-script" data-translate="testimonials_description">
-                        La satisfaction de mes clients est ma plus grande fierté. Voici quelques-uns de leurs retours.
-                    </p>
-                </div>
+        /* ==================================== */
+        /* Animations */
+        /* ==================================== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateZ(0); }
+            50% { transform: translateY(-15px) translateZ(10px); }
+        }
 
-                <div class="testimonials-carousel-wrapper" style="position: relative;">
-                    <div class="testimonials-grid">
-                        <div class="testimonial-card animate-fadeInUp delay-200">
-                            <p data-translate="testimonial_1_quote">
-                                "Patrick a résolu mon problème de PC en un rien de temps ! Il est d'une patience incroyable et explique tout si clairement. Un vrai magicien de l'informatique !"
-                            </p>
-                            <div class="testimonial-author">
-                                <p class="name font-dancing-script" data-translate="testimonial_1_name">Marie Dubois</p>
-                            </div>
-                        </div>
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 0 45px rgba(255, 215, 0, 0.2); }
+        }
 
-                        <div class="testimonial-card animate-fadeInUp delay-300">
-                            <p data-translate="testimonial_2_quote">
-                                "J'avais peur de l'informatique, mais les cours de Patrick sont géniaux. Il s'adapte à mon rythme et j'apprends tellement. Je le recommande à 100% !"
-                            </p>
-                            <div class="testimonial-author">
-                                <p class="name font-dancing-script" data-translate="testimonial_2_name">Jean Tremblay</p>
-                            </div>
-                        </div>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
 
-                        <div class="testimonial-card animate-fadeInUp delay-400">
-                            <p data-translate="testimonial_3_quote">
-                                "Service à domicile impeccable ! Mon réseau Wi-Fi est enfin stable. Patrick est rapide, efficace et très sympathique. Le meilleur technicien que j'aie eu."
-                            </p>
-                            <div class="testimonial-author">
-                                <p class="name font-dancing-script" data-translate="testimonial_3_name">Sophie Lévesque</p>
-                            </div>
-                        </div>
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px) translateZ(-50px); }
+            to { opacity: 1; transform: translateX(0) translateZ(0); }
+        }
 
-                        <div class="testimonial-card animate-fadeInUp delay-500">
-                            <p data-translate="testimonial_4_quote">
-                                "Grâce à Patrick, mon vieil ordinateur a retrouvé une seconde jeunesse. Il a fait un nettoyage complet et maintenant tout est fluide. Service exceptionnel !"
-                            </p>
-                            <div class="testimonial-author">
-                                <p class="name font-dancing-script" data-translate="testimonial_4_name">Marc Gagnon</p>
-                            </div>
-                        </div>
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px) translateZ(-50px); }
+            to { opacity: 1; transform: translateX(0) translateZ(0); }
+        }
 
-                        <div class="testimonial-card animate-fadeInUp delay-600">
-                            <p data-translate="testimonial_5_quote">
-                                "J'ai eu un problème urgent un samedi matin, et Patrick a répondu présent. Il a résolu le souci à distance en un temps record. Très professionnel et rassurant."
-                            </p>
-                            <div class="testimonial-author">
-                                <p class="name font-dancing-script" data-translate="testimonial_5_name">Isabelle Roy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-arrow carousel-arrow-left" id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-arrow carousel-arrow-right" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
-                </div>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px) translateZ(-30px); }
+            to { opacity: 1; transform: translateY(0) translateZ(0); }
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1) translateZ(0); }
+            50% { transform: scale(1.12) translateZ(15px); }
+        }
 
-                <div class="google-map-container animate-fadeInUp delay-700" style="margin-top: 6rem;"> <h3 data-translate="satisfaction_chart_title" class="font-caveat">Répartition de la Satisfaction Client</h3>
-                    <div style="max-width: 400px; margin: 0 auto;">
-                        <canvas id="satisfactionChart"></canvas>
-                    </div>
-                </div>
-                
-                <div class="google-map-container animate-fadeInUp delay-800" style="margin-top: 4rem;">
-                    <h3 data-translate="intervention_chart_title" class="font-caveat">Types d'Interventions</h3>
-                    <div style="max-width: 600px; margin: 0 auto;">
-                        <canvas id="interventionChart"></canvas>
-                    </div>
-                </div>
+        @keyframes titleGlow {
+            0% { 
+                text-shadow: 
+                    3px 3px 0 rgba(0,0,0,1),
+                    0 0 15px rgba(255, 215, 0, 0.4);
+            }
+            100% { 
+                text-shadow: 
+                    3px 3px 0 rgba(0,0,0,1),
+                    0 0 30px rgba(255, 215, 0, 0.8);
+            }
+        }
 
-                <div class="google-map-container animate-fadeInUp delay-900" style="margin-top: 4rem;">
-                    <h3 data-translate="resolution_chart_title" class="font-caveat">Temps de Résolution Estimé</h3>
-                    <div style="max-width: 600px; margin: 0 auto;">
-                        <canvas id="resolutionChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @keyframes statPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
 
-        <section id="contact" class="contact fade-in-section">
-            <div class="container">
-                <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="contact_title">
-                    Appelez Patrick pour régler vos tracas !
-                </h2>
-                
-                <a href="tel:8193802999" class="phone-big font-caveat animate-phonePulse">
-                    <i class="fas fa-phone"></i> <span data-translate="call_to_action_header">(819) 380-2999</span>
-                </a>
-                
-                <p class="contact-hours" data-translate="contact_phone_hours">
-                    <strong data-translate="contact_phone_hours_regular_strong">Horaires réguliers :</strong> <span data-translate="contact_phone_hours_regular_text">Lun-Ven 9h-17h</span><br>
-                    <strong data-translate="contact_phone_hours_emergency_strong">Urgence (surcoût) :</strong> <span data-translate="contact_phone_hours_emergency_text">7j/7 après 17h, weekends & fériés</span>
-                    <span id="availabilityStatus" class="ml-4 font-bold"></span> </p>
-                
-                <div class="contact-info-grid">
-                    <div class="contact-item animate-fadeInUp delay-200">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="content-text">
-                            <strong data-translate="contact_phone_title" class="font-caveat">Téléphone</strong>
-                            <p>(819) 380-2999</p>
-                        </div>
-                    </div>
-                    <div class="contact-item animate-fadeInUp delay-300">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="content-text">
-                            <strong data-translate="contact_email_title" class="font-caveat">Email</strong>
-                            <p>patrick@atelierpotvin.ca</p> <p data-translate="contact_email_guarantee">Réponse sous 24h garantie</p>
-                        </div>
-                    </div>
-                    <div class="contact-item animate-fadeInUp delay-400">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="content-text">
-                            <strong data-translate="contact_address_title" class="font-caveat">Adresse</strong>
-                            <p>462 rue D.-N.-Saint-Cyr<br>Nicolet (Québec) J3T 1H3</p>
-                            <p data-translate="contact_address_radius">Service à domicile dans un rayon de 50km</p>
-                        </div>
-                    </div>
-                    <div class="contact-item animate-fadeInUp delay-500">
-                        <div class="contact-icon"><i class="fas fa-id-card"></i></div>
-                        <div class="content-text">
-                            <strong data-translate="contact_neq_title" class="font-caveat">NEQ</strong>
-                            <p>2281042178</p>
-                            <p data-translate="contact_neq_text">Entreprise enregistrée au Québec</p>
-                        </div>
-                    </div>
-                </div>
+        @keyframes robotFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg) rotateX(0deg); }
+            25% { transform: translateY(-20px) rotate(3deg) rotateX(8deg); }
+            50% { transform: translateY(-30px) rotate(0deg) rotateX(0deg); }
+            75% { transform: translateY(-20px) rotate(-3deg) rotateX(-8deg); }
+        }
 
-                <div class="contact-form-container animate-fadeInUp delay-600">
-                    <h3 data-translate="quick_request_form_title" class="font-caveat">Formulaire de demande rapide</h3>
-                    <form id="contactForm" action="YOUR_FORM_SUBMISSION_URL" method="POST"> <label for="name" data-translate="form_name_label">Nom :</label>
-                        <input type="text" id="name" name="name" required>
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(40px) translateZ(-15px); }
+            to { opacity: 1; transform: translateY(0) translateZ(0); }
+        }
 
-                        <label for="phone" data-translate="form_phone_label">Téléphone :</label>
-                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}" title="Format: 123-456-7890">
+        @keyframes serviceShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
 
-                        <label for="email" data-translate="form_email_label">Email (facultatif) :</label>
-                        <input type="email" id="email" name="email">
+        @keyframes phonePulse {
+            0%, 100% { transform: scale(1) rotateZ(0deg); }
+            50% { transform: scale(1.15) rotateZ(3deg) translateZ(15px); }
+        }
 
-                        <label for="problem" data-translate="form_problem_description_label">Description du problème :</label>
-                        <textarea id="problem" name="problem" rows="5" required></textarea>
+        @keyframes floatBob {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(8deg); }
+        }
 
-                        <button type="submit" class="btn btn-primary" data-translate="form_submit_button">
-                            <i class="fas fa-paper-plane"></i> Envoyer ma demande
-                        </button>
-                        <div id="formMessage" class="text-sm"></div>
-                    </form>
-                </div>
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
 
-                <div class="google-map-container animate-fadeInUp delay-700">
-                    <h3 data-translate="map_title" class="font-caveat">Où nous trouver à Nicolet, Centre-du-Québec</h3>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.25890886617!2d-72.6288675233159!3d46.23073997112001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc7c34f3a14e9f7%3A0x608e9d29b222955f!2s462+Rue+D.-N.-Saint-Cyr%2C+Nicolet%2C+QC+J3T+1H3%2C+Canada!5e0!3m2!1sfr!2sca!4v1719360000000!5m2!1sfr!2sca" 
-                        width="600" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Localisation de l'Atelier Informatique Potvin sur Google Maps à Nicolet"
-                    ></iframe>
-                </div>
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--color-primary); }
+        }
 
-                <div class="emergency-module animate-fadeInUp delay-800">
-                    <h3 data-translate="emergency_module_title" class="font-great-vibes">
-                        ⚠️ Problème urgent ? Aide immédiate !
-                    </h3>
-                    <p data-translate="emergency_module_description">
-                        Pour les urgences après 17h, les weekends et jours fériés, un tarif double s'applique. Votre problème sera résolu rapidement !
-                    </p>
-                    <a href="tel:8193802999" class="btn btn-red" data-translate="emergency_call_button">
-                        <i class="fas fa-phone-volume"></i> Appeler Patrick en urgence
-                    </a>
-                    <p class="mt-4 text-sm" data-translate="emergency_download_agent_note">
-                        <a href="pub/rustdesk-agent.exe" download class="text-white underline hover:text-yellow-300"> Ou téléchargez l'agent d'assistance RustDesk préconfiguré ici.
-                        </a>
-                    </p>
-                </div>
 
-                <div class="flex flex-wrap justify-center gap: 3rem; /* Increased gap for more aeration */ mt-14">
-                    <a href="tel:8193802999" class="btn btn-primary animate-fadeInUp delay-900" data-translate="call_patrick_now_button">
-                        <i class="fas fa-phone"></i> Appelez Patrick maintenant
-                    </a>
-                    <a href="https://quickbooks.intuit.com/payments/YOUR_QUICKBOOKS_CLIENT_PAYMENT_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-translate="pay_invoice_button">
-                        <i class="fas fa-credit-card"></i> Payer une facture
-                    </a>
-                    <a href="/client-area.html" class="btn btn-secondary opacity-50 cursor-not-allowed" data-translate="client_area_button">
-                        <i class="fas fa-user-circle"></i> Espace Client (Bientôt)
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
+        /* ==================================== */
+        /* Styles de la barre de défilement */
+        /* ==================================== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
 
-    <footer class="footer">
-        <div class="container">
-            <p>
-                © 2025 <span data-translate="footer_copyright_company">Atelier Informatique Potvin (AIP)</span> • <span data-translate="footer_copyright_patrick">Patrick Potvin, à votre service depuis 1984 ❤️</span>
-            </p>
-            <p class="ai-credit">
-                <span data-translate="footer_ai_creation font-dancing-script">🤖 Site créé avec l'aide d'un assistant • Design moderne & chaleureux 2025</span>
-            </p>
-            <p class="ai-credit" style="color: var(--color-primary);">
-                <span data-translate="footer_design_by font-dancing-script">🎨 Design et conception par Patrick Potvin - AIP Atelier Informatique Potvin</span>
-            </p>
-            <div class="social-links mt-4">
-                <a href="https://www.facebook.com/votrepagefacebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://m.me/votrepagefacebook" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
-                    <i class="fab fa-facebook-messenger"></i>
-                </a>
-                <a href="https://wa.me/18193802999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-            <div class="legal-links mt-4">
-                <a href="/privacy-policy.html" class="text-sm text-gray-400 hover:text-yellow-300 mr-4" data-translate="privacy_policy_link">Politique de confidentialité</a>
-                <a href="/terms-of-service.html" class="text-sm text-gray-400 hover:text-yellow-300" data-translate="terms_of_service_link">Conditions d'utilisation</a>
-            </div>
-        </div>
-    </footer>
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-medium);
+        }
 
-    <button id="floatingRobitBtn" class="floating-robit-btn" data-translate="floating_robit_btn_text">
-        <i class="fas fa-robot"></i>
-    </button>
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 6px;
+        }
 
-    <script src="pub/script.js"></script>
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-accent));
+        }
 
-</body>
-</html>
+
+        /* ==================================== */
+        /* Section d'animation au défilement */
+        /* ==================================== */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+
+        /* ==================================== */
+        /* NOUVEAUX STYLES DE L'EN-TÊTE */
+        /* ==================================== */
+        .main-header {
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+            color: white;
+            width: 100%;
+            padding: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--border-color-dark);
+            text-align: center; /* Centrer le contenu dans l'en-tête */
+            position: sticky; /* Rendre l'en-tête sticky */
+            top: 0; /* Le coller en haut */
+            z-index: 1000; /* Assurer qu'it is au-dessus des autres éléments */
+        }
+
+        .main-header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Permettre aux éléments de passer à la ligne sur les petits écrans */
+            padding: 0 20px; /* Ajouter un padding directement à la nav */
+        }
+
+        .main-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: white;
+            font-weight: 900;
+            font-size: 1.4rem;
+            transition: all 0.4s ease;
+            filter: drop_shadow(0 0 20px rgba(255, 215, 0, 0.3));
+            text-shadow: 
+                2px 2px 0 rgba(0,0,0,0.9),
+                0 0 10px rgba(255, 215, 0, 0.5);
+            transform-style: preserve-3d;
+        }
+
+        .main-header .logo:hover {
+            transform: scale(1.02); /* Ajusté pour moins d'agressivité */
+            text-shadow: 
+                3px 3px 0 rgba(0,0,0,1),
+                0 0 25px rgba(255, 215, 0, 0.8);
+            filter: drop_shadow(0 5px 15px rgba(255, 215, 0, 0.7));
+        }
+
+        .main-header .logo-icon {
+            width: 80px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #DAA520 50%, #B8860B 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 
+                0 10px 30px rgba(255, 215, 0, 0.7),
+                0 0 0 2px rgba(255,255,255,0.2),
+                0 0 0 4px rgba(255, 215, 0, 0.3),
+                inset 0 2px 0 rgba(255,255,255,0.4),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .main-header .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.08));
+            z-index: 1;
+        }
+
+        .main-header .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-header .logo-icon:hover {
+            transform: translateY(-5px) scale(1.05); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 30px 80px rgba(255, 215, 0, 1),
+                0 0 0 4px rgba(255,255,255,0.3),
+                0 0 0 8px rgba(255, 215, 0, 0.5),
+                inset 0 3px 0 rgba(255,255,255,0.5),
+                inset 0 -3px 0 rgba(0,0,0,0.5);
+        }
+
+        .main-header .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            justify-content: center; /* Centrer les éléments de navigation */
+            flex-grow: 1; /* Permettre à la nav de prendre l'espace disponible */
+        }
+
+        .main-header .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-header .nav-menu a {
+            color: var(--color-text-medium);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            transition: all 0.3s ease; /* Transition plus douce */
+            position: relative;
+            text-shadow: 
+                1px 1px 0 rgba(0,0,0,0.8),
+                0 0 4px rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            box-shadow: 
+                0 5px 15px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+            transform-style: preserve-3d;
+        }
+
+        .main-header .nav-menu a:hover {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05)); /* Moins intense */
+            color: var(--color-primary);
+            transform: translateY(-1px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            border: 1px solid var(--color-primary); /* Bordure plus fine */
+            text-shadow: 
+                1px 1px 0 rgba(0,0,0,0.9),
+                0 0 10px rgba(255, 215, 0, 0.5); /* Ombre plus douce */
+            box-shadow: 
+                0 8px 25px rgba(255, 215, 0, 0.4), /* Ombre plus douce */
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        
+        /* Styles spécifiques au sélecteur de langue pour les emojis de drapeau */
+        .main-header .language-selector {
+            margin-left: 1rem;
+            background: #FFD700; /* Couleur or solide */
+            color: var(--color-text-dark); /* Couleur du texte pour l'emoji */
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem; /* Taille de police normale pour le texte */
+            font-weight: 800;
+            cursor: pointer;
+            appearance: none; /* Supprimer la flèche par défaut pour un style personnalisé */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: none; /* Assurer qu'il n'y a pas d'image de fond */
+            background-repeat: no-repeat; /* Conserver no-repeat */
+            background-position: right 8px center; /* Conserver la position */
+            background-size: 14px; /* Conserver la taille */
+            box-shadow: 
+                0 8px 25px rgba(255, 215, 0, 0.8),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            text-align: center; /* Centrer l'emoji de drapeau */
+            line-height: 1.5; /* Ajuster la hauteur de ligne pour un meilleur centrage de l'emoji */
+        }
+
+        .main-header .language-selector:hover {
+            transform: translateY(-2px); /* Ajusté pour moins d'agressivité 3D */
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 50%, #8B7D3A 100%); /* Dégradé de hover du bouton d'appel */
+            box-shadow: 
+                0 10px 30px rgba(255, 107, 53, 0.7), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.2);
+            border-color: var(--color-secondary);
+        }
+        /* Style pour les options dans le sélecteur pour assurer la visibilité des drapeaux */
+        .main-header .language-selector option {
+            color: var(--color-text-dark); /* Assurer que le texte de l'option est visible */
+            background-color: var(--color-bg-medium); /* Fond sombre pour les options */
+            font-size: 1rem; /* Ajuster la taille de la police pour les options si nécessaire */
+        }
+        
+        /* Bouton d'appel principal (desktop-only-cta) */
+        .main-header .phone-btn {
+            background: #FFD700; /* Couleur or solide */
+            color: var(--color-text-dark);
+            padding: 0.7rem 1.4rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            box-shadow: 
+                0 10px 25px rgba(255, 215, 0, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.4),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+            transition: all 0.3s ease; /* Transition plus douce */
+            transform-style: preserve-3d;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .main-header .phone-btn:hover {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 50%, #8B7D3A 100%);
+            transform: translateY(-3px) scale(1.02); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(255, 215, 0, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.4),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+        }
+
+        .main-header .mobile-menu-btn {
+            display: none; /* Masqué par défaut sur desktop */
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        /* Styles pour le menu mobile (par défaut masqué, affiché via JS) */
+        @media (max-width: 768px) {
+            .main-header .nav-menu {
+                display: none; /* Masquer le menu desktop par défaut sur mobile */
+                flex-direction: column;
+                width: 100%;
+                padding: 1rem 0;
+                background: rgba(13, 17, 23, 0.95);
+                list-style: none;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .main-header .nav-menu.active {
+                display: flex; /* Afficher le menu mobile lorsqu'il est actif */
+            }
+
+            .main-header .nav-menu a,
+            .main-header .nav-menu select,
+            .main-header .nav-menu .theme-toggle-btn {
+                display: block;
+                width: 90%;
+                margin: 0.5rem auto;
+                padding: 0.8rem 1.5rem;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: white;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+            .main-header .nav-menu a:hover,
+            .main-header .nav-menu select:hover,
+            .main-header .nav-menu .theme-toggle-btn:hover {
+                background: rgba(255,215,0,0.1); /* Moins intense */
+                color: var(--color-primary);
+            }
+            .main-header .nav-menu .phone-btn-mobile { /* Nouveau style pour le bouton d'appel dans le menu mobile */
+                display: flex;
+                margin-top: 1rem;
+                justify-content: center;
+                width: 90%;
+                margin: 1rem auto;
+                background: #FFD700;
+                color: var(--color-text-dark);
+                padding: 0.7rem 1.4rem;
+                border-radius: 20px;
+                text-decoration: none;
+                font-weight: 800;
+                font-size: 1.1rem;
+                box-shadow: 
+                    0 10px 25px rgba(255, 215, 0, 0.7),
+                    inset 0 2px 0 rgba(255,255,255,0.4),
+                    inset 0 -2px 0 rgba(0,0,0,0.4);
+            }
+        }
+
+
+        /* ==================================== */
+        /* SECTION HÉRO : ACCUEIL ET PRÉSENTATION */
+        /* ==================================== */
+        .hero {
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 50%, var(--color-bg-light) 100%);
+            color: var(--color-text-light);
+            padding: 120px 0 140px; /* Increased padding-top and padding-bottom for more aeration */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh; 
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 40% 70%, rgba(46, 204, 113, 0.2) 0%, transparent 60%);
+            transform-style: preserve-3d;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrage horizontal des blocs */
+            gap: 4rem; /* Increased gap for more aeration */
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center; /* Centrage du texte par défaut */
+        }
+
+        .hero-photo {
+            position: relative;
+            transform-style: preserve-3d;
+            flex-shrink: 0;
+        }
+
+        .photo-frame {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            position: relative;
+            background: linear-gradient(135deg, var(--color-primary), #DAA520, #B8860B);
+            padding: 5px;
+            box-shadow: 
+                0 0 0 5px rgba(255, 215, 0, 0.4),
+                0 0 0 10px rgba(52, 152, 219, 0.3),
+                0 0 0 15px rgba(46, 204, 113, 0.2),
+                0 0 0 20px rgba(255, 255, 255, 0.15),
+                0 20px 50px rgba(0,0,0,1),
+                inset 0 3px 0 rgba(255,255,255,0.3),
+                inset 0 -3px 0 rgba(0,0,0,0.3);
+            transition: all 0.5s ease;
+            transform-style: preserve-3d;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.08));
+            z-index: 1;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 0 0 12px rgba(255, 215, 0, 0.6),
+                0 0 0 25px rgba(52, 152, 219, 0.5),
+                0 0 0 38px rgba(46, 204, 113, 0.4),
+                0 0 0 50px rgba(255, 255, 255, 0.3),
+                0 50px 120px rgba(0,0,0,1.2),
+                inset 0 5px 0 rgba(255,255,255,0.4),
+                inset 0 -5px 0 rgba(0,0,0,0.4);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .photo-caption {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            font-weight: 800;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                0 2px 4px rgba(0,0,0,0.5);
+            filter: drop_shadow(0 4px 8px rgba(255, 215, 0, 0.4));
+            text-align: center;
+            width: 100%;
+            display: block;
+            font-family: 'Caveat', cursive;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(247, 147, 30, 0.3), rgba(247, 147, 30, 0.1));
+            border: 3px solid #f7931e;
+            color: var(--color-text-dark); /* Changed for better contrast */
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-shadow: 
+                0 0 15px rgba(247, 147, 30, 0.8),
+                0 2px 4px rgba(0,0,0,0.4);
+            box-shadow: 
+                0 15px 40px rgba(247, 147, 30, 0.5),
+                inset 0 2px 0 rgba(255,255,255,0.2),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            transform-style: preserve-3d;
+            font-family: 'Caveat', cursive;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            text-align: center; /* Assurer le centrage */
+            width: 100%; /* Assurer qu'il prend toute la largeur disponible */
+            max-width: 900px;
+            color: var(--color-primary);
+            text-shadow: 
+                2px 2px 0 rgba(0,0,0,0.9),
+                0 0 12px rgba(255, 215, 0, 0.3);
+            animation: titleGlow 5s ease-in-out infinite alternate;
+            transform-style: preserve-3d;
+            font-family: 'Great Vibes', cursive; /* Appliquer Great Vibes ici */
+            margin: 0 auto 2rem; /* Centrer l'élément h1 lui-même */
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            color: var(--color-text-medium);
+            text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+            text-align: center; /* Centrer ce paragraphe */
+            max-width: 800px;
+            font-family: 'Dancing Script', cursive; /* Appliquer Dancing Script ici */
+            margin: 0 auto 2.5rem; /* Centrer l'élément lui-même */
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
+            overflow: hidden; /* Cache le texte qui dépasse */
+            border-right: .15em solid var(--color-primary); /* Curseur clignotant */
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3.5rem; /* Increased gap for more aeration */
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 4rem; /* Increased margin-bottom */
+        }
+
+        .stat {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(33, 38, 45, 0.8) 0%, rgba(22, 27, 34, 0.7) 100%);
+            padding: 2.2rem 2rem;
+            border-radius: 25px;
+            border: 2px solid var(--border-color-dark);
+            min-width: 150px;
+            position: relative;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.9),
+                inset 0 2px 0 rgba(255,255,255,0.1),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(15px);
+            transform-style: preserve-3d;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+            z-index: 1;
+        }
+
+        .stat:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.03)); /* Moins intense */
+            border: 2px solid var(--color-primary);
+            transform: translateY(-5px) scale(1.02); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 20px 60px rgba(255, 215, 0, 0.5), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            display: block;
+            text-shadow: 
+                0 0 25px rgba(255, 215, 0, 1),
+                0 3px 6px rgba(0,0,0,0.5);
+            animation: statPulse 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            font-family: 'Caveat', cursive;
+        }
+
+        .stat-label {
+            color: var(--color-text-light); /* Changed for better contrast */
+            font-size: 1.1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 3rem; /* Increased gap for more aeration */
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3.5rem; /* Increased margin-bottom */
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease; /* Transition plus douce */
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            /* Assurer que les boutons n'héritent pas du style de curseur de texte */
+            cursor: pointer; 
+            animation: none !important; /* Désactiver toute animation héritée */
+            border-right: none !important; /* Désactiver le bord clignotant */
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green-btn-start) 0%, var(--green-btn-mid) 50%, var(--green-btn-end) 100%);
+            color: white;
+            box-shadow: 
+                0 15px 40px rgba(40, 167, 69, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--green-btn-mid) 0%, var(--green-btn-end) 50%, #138496 100%);
+            transform: translateY(-3px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(40, 167, 69, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--blue-btn-start) 0%, var(--blue-btn-mid) 50%, var(--blue-btn-end) 100%);
+            color: white;
+            box-shadow: 
+                0 15px 40px rgba(0, 123, 255, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, var(--blue-btn-mid) 0%, var(--blue-btn-end) 50%, #dc3545 100%);
+            transform: translateY(-3px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(0, 123, 255, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-start) 0%, var(--whatsapp-mid) 50%, var(--whatsapp-end) 100%);
+            color: white;
+            box-shadow: 
+                0 15px 40px rgba(37, 211, 102, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, var(--whatsapp-mid) 0%, var(--whatsapp-end) 50%, #054740 100%);
+            transform: translateY(-3px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(37, 211, 102, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, var(--purple-btn-start) 0%, var(--purple-btn-mid) 50%, var(--purple-btn-end) 100%);
+            color: white;
+            box-shadow: 
+                0 15px 40px rgba(138, 43, 226, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-purple:hover {
+            background: linear-gradient(135deg, var(--purple-btn-mid) 0%, var(--purple-btn-end) 50%, #C71585 100%);
+            transform: translateY(-3px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(138, 43, 226, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-red {
+            background: linear-gradient(135deg, var(--red-btn-start) 0%, var(--red-btn-end) 100%);
+            color: white;
+            box-shadow: 
+                0 15px 40px rgba(220, 53, 69, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .btn-red:hover {
+            background: linear-gradient(135deg, var(--red-btn-end) 0%, #a0202e 100%);
+            transform: translateY(-3px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 15px 40px rgba(220, 53, 69, 0.8), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+
+        /* ==================================== */
+        /* SECTION ROBIT ASSISTANT */
+        /* ==================================== */
+        .robit-section {
+            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 140px 0; /* Increased padding for more aeration */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .robit-icon-main {
+            font-size: 7rem;
+            color: var(--color-primary);
+            margin-bottom: 2.5rem;
+            text-shadow: 
+                0 0 25px rgba(255, 215, 0, 0.7),
+                0 5px 10px rgba(0,0,0,0.5);
+            animation: robotFloat 5s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 7vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+            color: var(--color-primary);
+            text-shadow: 
+                2px 2px 0 rgba(0,0,0,0.9),
+                0 0 15px rgba(255, 215, 0, 0.5);
+            font-family: 'Great Vibes', cursive; /* Appliquer Great Vibes ici */
+        }
+
+        .section-subtitle {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 3.5rem; /* Increased margin-bottom for more aeration */
+            line-height: 1.7;
+            color: var(--color-text-medium);
+            text-align: center;
+            font-family: 'Dancing Script', cursive; /* Appliquer Dancing Script ici */
+        }
+
+        .robit-chat-container {
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 30px;
+            max-width: 800px;
+            margin: 4rem auto;
+            position: relative;
+            box-shadow: 
+                0 40px 120px rgba(0,0,0,1),
+                0 0 0 3px rgba(255, 215, 0, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.1),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            height: 650px;
+            border: 3px solid var(--color-primary);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            backdrop-filter: blur(20px);
+            /* Removed display: none; to make it always visible */
+            opacity: 1; /* Ensure it's not transparent */
+            transform: scale(1) translateY(0); /* Ensure it's not scaled down or moved */
+            transition: all 0.5s ease-out;
+        }
+
+        .robit-chat-container.is-visible {
+            display: flex; /* Kept for compatibility if JS toggles it */
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .robit-chat-container::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 1.8rem 2.2rem;
+            color: var(--color-text-dark);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-align: left;
+            border-bottom: 3px solid rgba(0,0,0,0.2);
+            box-shadow: 
+                0 10px 25px rgba(0,0,0,0.4),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            scroll-behavior: smooth;
+            background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+            position: relative;
+            z-index: 2;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: var(--color-bg-dark);
+            border-radius: 8px;
+            border: 1px solid var(--color-primary);
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 8px;
+            border: 1px solid var(--color-bg-dark);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.9);
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 1.5rem 2rem;
+            border-radius: 25px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            animation: messageSlide 0.5s ease-out;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .bot-message {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
+            color: var(--color-text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 8px;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%);
+            color: var(--color-text-light);
+            align-self: flex-end;
+            border-bottom-right-radius: 8px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 1.8rem 2rem;
+            gap: 1.5rem;
+            background: rgba(255,215,0,0.1);
+            border-top: 2px solid var(--color-primary);
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 1.2rem 1.8rem;
+            border: 2px solid var(--color-primary);
+            border-radius: 30px;
+            background: rgba(0,0,0,0.4);
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 
+                inset 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 -1px 0 rgba(255,255,255,0.1);
+        }
+        /* Style de l'espace réservé pour la compatibilité inter-navigateurs */
+        .chat-input-area input::placeholder {
+            color: var(--color-text-warm);
+            opacity: 0.7;
+        }
+        .chat-input-area input:-ms-input-placeholder { /* Edge */
+            color: var(--color-text-warm);
+            opacity: 0.7;
+        }
+        .chat-input-area input::-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: var(--color-text-warm);
+            opacity: 0.7;
+        }
+
+
+        .chat-input-area input:focus {
+            border-color: var(--color-accent);
+            box-shadow: 
+                0 0 20px rgba(78, 205, 196, 0.4),
+                inset 0 2px 4px rgba(0,0,0,0.3),
+                inset 0 -1px 0 rgba(255,255,255,0.1);
+        }
+
+        .chat-input-area button {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 
+                0 12px 30px rgba(78, 205, 196, 0.5),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chat-input-area button:hover {
+            background: linear-gradient(135deg, #42b8b0 0%, #3ca098 100%);
+            transform: translateY(-3px) scale(1.02); /* Ajusté pour moins d'agressivité 3D */
+            box-shadow: 
+                0 25px 60px rgba(78, 205, 196, 0.8),
+                inset 0 3px 0 rgba(255,255,255,0.4),
+                inset 0 -3px 0 rgba(0,0,0,0.4);
+        }
+
+        .loading-indicator {
+            text-align: center;
+            color: var(--color-primary);
+            margin: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+
+        /* ==================================== */
+        /* SECTION SERVICES */
+        /* ==================================== */
+        .services {
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-medium) 100%);
+            color: var(--color-text-light);
+            padding: 140px 0; /* Increased padding for more aeration */
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3.5rem; /* Increased gap for more aeration */
+            justify-content: center;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            padding: 3rem; /* Increased padding for more aeration */
+            border-radius: 25px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--color-primary);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.7),
+                inset 0 2px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.15), transparent);
+            transform: rotate(45deg);
+            transition: all 0.7s ease;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+            animation: serviceShine 1s ease-out;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.07)); /* Moins intense */
+            transform: translateY(-5px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            border-color: var(--color-accent);
+            box-shadow: 
+                0 20px 60px rgba(255, 215, 0, 0.5), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.2),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-text-dark);
+            margin: 0 auto 2rem;
+            position: relative;
+            box-shadow: 
+                0 20px 50px rgba(255, 215, 0, 0.5),
+                inset 0 3px 0 rgba(255,255,255,0.3),
+                inset 0 -3px 0 rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.05); /* Ajusté pour moins d'agressivité 3D */
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%);
+            box-shadow: 
+                0 20px 50px rgba(78, 205, 196, 0.7), /* Ombre plus douce */
+                inset 0 3px 0 rgba(255,255,255,0.4),
+                inset 0 -3px 0 rgba(0,0,0,0.4);
+        }
+
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            font-weight: 800;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.8),
+                0 3px 6px rgba(0,0,0,0.5);
+            font-family: 'Caveat', cursive;
+        }
+
+        .service-card p {
+            color: var(--color-text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-text-dark); /* Changed for better contrast */
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%); /* Changed to solid accent for better contrast */
+            padding: 1.8rem;
+            border-radius: 20px;
+            border: 2px solid var(--color-accent);
+            text-shadow: 0 0 15px rgba(78, 205, 196, 0.8);
+            box-shadow: 
+                0 12px 30px rgba(78, 205, 196, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            font-family: 'Caveat', cursive;
+            display: block; /* Ajouter display block */
+            margin: 0 auto 2rem; /* Centrer l'élément */
+        }
+        
+        .service-card .btn {
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            letter-spacing: 1px;
+            gap: 10px;
+        }
+        .service-card .btn-secondary {
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%);
+            color: var(--color-text-dark);
+        }
+        .service-card .btn-secondary:hover {
+            background: linear-gradient(135deg, #42b8b0 0%, #3ca098 100%);
+        }
+        .service-card .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-text-dark);
+        }
+        .service-card .btn-primary:hover {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+        }
+
+
+        /* ==================================== */
+        /* SECTION D'ASSISTANCE À DISTANCE */
+        /* ==================================== */
+        .assistance-section {
+            background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-light) 100%);
+            color: var(--color-text-light);
+            padding: 140px 0; /* Increased padding for more aeration */
+        }
+
+        .download-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05));
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--color-primary);
+            border-radius: 25px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .download-card:hover {
+            transform: scale(1.01) translateY(-3px); /* Ajusté pour moins d'agressivité 3D */
+            border-color: var(--color-accent);
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.7), /* Ombre plus douce */
+                0 0 0 2px var(--color-accent),
+                0 0 0 4px rgba(78, 205, 196, 0.3);
+        }
+
+        .download-card .text-7xl {
+            font-size: 5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .download-card:hover .text-7xl {
+            color: var(--color-accent);
+        }
+
+        .download-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-family: 'Caveat', cursive;
+        }
+
+        .download-card p {
+            font-size: 1.1rem;
+            color: var(--color-text-medium);
+            margin-bottom: 2rem;
+        }
+
+        .security-note {
+            text-align: center;
+            margin-top: 4.5rem; /* Increased margin-top for more aeration */
+            padding: 3rem; /* Increased padding for more aeration */
+            background: rgba(255,215,0,0.1);
+            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 8px 20px rgba(255,215,0,0.3);
+        }
+        .security-note p {
+            font-size: 1.1rem;
+            color: var(--color-text-medium);
+            margin-bottom: 0.8rem;
+        }
+        .security-note strong {
+            color: var(--color-primary);
+        }
+
+
+        /* ==================================== */
+        /* SECTION CONTACT */
+        /* ==================================== */
+        .contact {
+            background: linear-gradient(135deg, var(--color-bg-light) 0%, var(--color-bg-dark) 100%);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 140px 0; /* Increased padding for more aeration */
+        }
+
+        .phone-big {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--color-primary);
+            text-decoration: none;
+            margin-bottom: 2.5rem;
+            display: block;
+            text-shadow: 
+                0 0 25px rgba(255, 215, 0, 0.7),
+                0 5px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            animation: phonePulse 4s infinite;
+            font-family: 'Caveat', cursive;
+        }
+
+        .phone-big:hover {
+            color: var(--color-secondary);
+            transform: scale(1.02); /* Ajusté pour moins d'agressivité 3D */
+            text-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.9),
+                0 4px 8px rgba(0,0,0,0.6);
+        }
+
+        .contact-hours {
+            font-size: 1.2rem;
+            margin-bottom: 3.5rem; /* Increased margin-bottom for more aeration */
+            color: var(--color-text-medium);
+        }
+        .contact-hours strong {
+            color: var(--color-primary);
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3.5rem; /* Increased gap for more aeration */
+            margin: 4.5rem auto; /* Increased margin for more aeration */
+            max-width: 1000px;
+            /* margin-left: auto; */ /* Redundant with margin: auto */
+            /* margin-right: auto; */ /* Redundant with margin: auto */
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05));
+            padding: 3rem; /* Increased padding for more aeration */
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 2px solid var(--color-primary);
+            position: relative;
+            box-shadow: 
+                0 20px 50px rgba(0,0,0,0.7),
+                inset 0 2px 0 rgba(255,255,255,0.15),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem; /* Increased gap for more aeration */
+        }
+
+        .contact-item .content-text {
+            flex-grow: 1;
+            min-width: 0; /* Allow text to wrap within flex item */
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            color: var(--color-text-medium); /* Kept as is, assuming good contrast on default background */
+            word-wrap: break-word; /* Ensure long words break */
+            overflow-wrap: break-word; /* Ensure long words break */
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px) scale(1.01); /* Ajusté pour moins d'agressivité 3D */
+            border-color: var(--color-accent);
+            box-shadow: 
+                0 20px 50px rgba(255, 215, 0, 0.6), /* Ombre plus douce */
+                inset 0 2px 0 rgba(255,255,255,0.2),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--color-text-dark);
+            flex-shrink: 0;
+            box-shadow: 
+                0 15px 40px rgba(255, 215, 0, 0.5),
+                inset 0 2px 0 rgba(255,255,255,0.3),
+                inset 0 -2px 0 rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.05); /* Ajusté pour moins d'agressivité 3D */
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent) 100%);
+            box-shadow: 
+                0 20px 50px rgba(78, 205, 196, 0.7), /* Ombre plus douce */
+                inset 0 3px 0 rgba(255,255,255,0.4),
+                inset 0 -3px 0 rgba(0,0,0,0.4);
+        }
+        .contact-item strong {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Caveat', cursive;
+        }
+        /* .contact-item p { Already defined above for word-wrap } */
+
+        .contact-form-container {
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%);
+            border-radius: 25px;
+            max-width: 700px;
+            margin: 5rem auto; /* Increased margin for more aeration */
+            padding: 3.5rem; /* Increased padding for more aeration */
+            border: 2px solid var(--color-primary);
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.9),
+                inset 0 2px 0 rgba(255,255,255,0.1),
+                inset 0 -2px 0 rgba(0,0,0,0.4);
+            backdrop-filter: blur(15px);
+            text-align: left;
+        }
+
+        .contact-form-container h3 {
+            font-size: 2rem;
+            color: var(--color-primary); /* Kept as is, assuming good contrast on background */
+            margin-bottom: 2rem; /* Increased margin-bottom for more aeration */
+            text-align: center;
+            font-family: 'Caveat', cursive;
+        }
+
+        .contact-form-container label {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--color-text-medium);
+            margin-bottom: 0.8rem; /* Increased margin-bottom for more aeration */
+            font-weight: 600;
+        }
+
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container input[type="tel"],
+        .contact-form-container textarea {
+            width: 100%;
+            padding: 1.2rem; /* Increased padding for more aeration */
+            margin-bottom: 2rem; /* Increased margin-bottom for more aeration */
+            border-radius: 10px;
+            border: 2px solid var(--border-color-dark);
+            background: var(--color-bg-
