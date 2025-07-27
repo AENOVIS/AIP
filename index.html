@@ -6,9 +6,11 @@
     <title data-translate="page_title">Atelier Informatique Potvin</title>
     <meta name="description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
 
+    <!-- Favicon (CHEMINS AJUSTÉS POUR PUB/) -->
     <link rel="icon" href="pub/logo-aip.jpg" type="image/jpeg">
     <link rel="apple-touch-icon" href="pub/apple-touch-icon.png"> 
 
+    <!-- OpenGraph Tags pour les réseaux sociaux (IMAGES AJUSTÉES POUR PUB/) -->
     <meta property="og:title" content="Atelier Informatique Potvin - Votre Expert Local">
     <meta property="og:description" content="Patrick Potvin, expert informatique depuis 1984. Services à domicile, réparation PC, cours personnalisés, sécurité. Assistant Robit GRATUIT. Nicolet, Centre-du-Québec.">
     <meta property="og:image" content="pub/image-4.jpg"> 
@@ -16,21 +18,28 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_CA"> 
 
+    <!-- PWA Meta Tags (pour "Installer en tant qu'App") -->
     <meta name="mobile-web-app-capable" content="yes"> 
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="AIP">
-    <link rel="manifest" href="pub/manifest.json"> 
+    <!-- Suppression de la référence à manifest.json car le fichier n'existe pas -->
+    <!-- <link rel="manifest" href="pub/manifest.json"> -->
 
+    <!-- Fonts Google : Inter pour le corps, Great Vibes, Dancing Script, Allura, Pacifico pour les titres et accents -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@400;600;700&family=Allura&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Précharger les polices critiques pour améliorer la performance -->
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMwLtVKj7ztYw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/greatvibes/v14/RWmMoKWR9v4MdgY_r5SeWg.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/dancingscript/v24/IfSsSMpt0KbNr5WdFpQmNkdVmw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/caveat/v17/Wnz6HAc5bC5S2P_f-Yd8.woff2" as="font" type="font/woff2" crossorigin>
 
+    <!-- Font Awesome pour les icônes -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+    <!-- Chart.js pour les graphiques -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- Microdonnées Schema.org pour service local (IMAGE AJUSTÉE POUR PUB/) -->
     <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -199,6 +208,7 @@
     }
     </script>
 
+    <!-- STYLE CSS INTÉGRÉ ICI -->
     <style>
         /* ==================================== */
         /* Variables CSS pour la palette de couleurs */
@@ -2438,35 +2448,46 @@
 </head>
 <body class="antialiased">
 
+    <!-- ==================================== -->
+    <!-- NOUVELLE BARRE D'EN-TÊTE -->
+    <!-- ==================================== -->
     <header class="main-header">
         <nav class="container">
+            <!-- Logo et Nom de l'entreprise -->
             <a href="#" class="logo">
                 <div class="logo-icon">
+                    <!-- Image du logo (CHEMIN AJUSTÉ POUR PUB/) -->
                     <img src="pub/logo-aip.jpg" alt="Logo Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/60x60/FFD700/1A1A2E?text=AIP';">
                 </div>
                 <span data-translate="company_name">Atelier Informatique Potvin</span>
             </a>
 
+            <!-- Menu de navigation (unique pour desktop et mobile) -->
             <ul id="mainNavMenu" class="nav-menu">
                 <li><a href="#robit" data-translate="robit_menu">🤖 Robit Assistant Gratuit</a></li>
                 <li><a href="#services" data-translate="services_menu">Services</a></li>
                 <li><a href="#assistance" data-translate="assistance_menu">Assistance</a></li>
                 <li><a href="#contact" data-translate="contact_menu">Contact</a></li>
+                <!-- Sélecteur de langue -->
                 <li>
                     <select id="languageSelector" class="language-selector">
                         <option value="fr">🇫🇷 Français</option>
                         <option value="en">🇺🇸 English</option>
                     </select>
                 </li>
+                <!-- Bouton de mode clair/sombre -->
                 <li>
                     <button id="themeToggleBtn" class="theme-toggle-btn">
-                        <i class="fas fa-moon"></i> </button>
+                        <i class="fas fa-moon"></i> <!-- Icône par défaut pour le mode sombre -->
+                    </button>
                 </li>
+                <!-- Bouton "Mode simplifié" -->
                 <li>
                     <button id="simplifiedModeToggleBtn" class="theme-toggle-btn">
                         <i class="fas fa-universal-access"></i> <span data-translate="simplified_mode_button">Mode simplifié</span>
                     </button>
                 </li>
+                <!-- Bouton d'appel à l'action principal pour mobile (sera affiché via JS si menu actif) -->
                 <li class="mobile-only-cta">
                     <a href="tel:8193802999" class="phone-btn-mobile">
                         <i class="fas fa-phone"></i>
@@ -2475,6 +2496,7 @@
                 </li>
             </ul>
             
+            <!-- Bouton menu mobile (visible sur mobile) -->
             <button id="mobileMenuBtn" class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -2482,11 +2504,15 @@
     </header>
 
     <main>
+        <!-- ==================================== -->
+        <!-- SECTION HÉRO : ACCUEIL ET PRÉSENTATION -->
+        <!-- ==================================== -->
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-photo animate-fadeInUp">
                         <div class="photo-frame">
+                            <!-- Image de la photo de Patrick (CHEMIN AJUSTÉ POUR PUB/) -->
                             <img src="pub/image-4.jpg" alt="Patrick Potvin - Fondateur Atelier Informatique Potvin" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x300/FFD700/1A1A2E?text=AIP';">
                         </div>
                         <p class="photo-caption font-dancing-script">
@@ -2506,6 +2532,7 @@
                             Depuis 1984, j’aide les gens à reprendre le contrôle de leur ordinateur.
                         </p>
                         
+                        <!-- Statistiques clés -->
                         <div class="hero-stats">
                             <div class="stat">
                                 <span class="stat-number font-caveat">41</span>
@@ -2521,6 +2548,7 @@
                             </div>
                         </div>
 
+                        <!-- Badges de confiance visuels -->
                         <div class="badge-container">
                             <span class="trust-badge quebec">
                                 <i class="fas fa-map-marker-alt"></i> <span data-translate="badge_quebec">100% Québec</span>
@@ -2536,17 +2564,24 @@
                             </span>
                         </div>
 
-                        <div class="hero-cta" style="gap: 1.5rem;"> 
-                            <a href="tel:8193802999" class="btn btn-red" style="font-size: 1.5rem; padding: 25px 50px; box-shadow: 0 20px 50px rgba(220, 53, 69, 0.8);" data-translate="free_quote_button_main">
+                        <!-- Boutons d'appel à l'action principaux réorganisés et superposés -->
+                        <div class="hero-cta-stacked">
+                            <!-- Bouton principal (grand, en arrière-plan) -->
+                            <a href="tel:8193802999" class="btn btn-red hero-main-btn" data-translate="free_quote_button_main">
                                 <i class="fas fa-phone"></i> <span data-translate="free_quote_button">DIAGNOSTIC GRATUIT - (819) 380-2999</span>
                             </a>
-                            <a href="#robit" class="btn btn-purple" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="talk_to_robit_button">
-                                <i class="fas fa-robot"></i> <span data-translate="talk_to_robit_button">Parler à Robit IA</span>
+                            
+                            <!-- Bouton "Parler à Robit IA" (superposé en haut à droite) -->
+                            <a href="#robit" class="btn btn-purple hero-robit-btn" data-translate="talk_to_robit_button">
+                                <i class="fas fa-robot"></i> <span data-translate="talk_to_robit_button_text">Parler à Robit IA</span>
                             </a>
-                            <a href="#assistance" class="btn btn-secondary" style="font-size: 1.1rem; padding: 15px 30px;" data-translate="download_agent_button">
-                                <i class="fas fa-download"></i> <span data-translate="download_agent_button">Télécharger mon agent sécurisé</span>
+                            
+                            <!-- Bouton "Télécharger mon agent sécurisé" (superposé en bas au centre) -->
+                            <a href="#assistance" class="btn btn-secondary hero-download-btn" data-translate="download_agent_button">
+                                <i class="fas fa-download"></i> <span data-translate="download_agent_button_text">Télécharger mon agent sécurisé</span>
                             </a>
                         </div>
+
                         <p class="text-lg text-[var(--color-text-warm)] mt-4 text-center" data-translate="urgent_call_note">
                             Pour toute urgence informatique, Patrick est disponible 7j/7. N'attendez pas !
                         </p>
@@ -2555,6 +2590,9 @@
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION ROBIT ASSISTANT GRATUIT -->
+        <!-- ==================================== -->
         <section id="robit" class="robit-section fade-in-section">
             <div class="container">
                 <i class="fas fa-robot robit-icon-main animate-robot-float"></i>
@@ -2598,6 +2636,7 @@
                     </div>
                 </div>
 
+                <!-- Placeholder pour le module de diagnostic en ligne (future extension) -->
                 <div class="mt-12">
                     <h3 class="text-2xl font-bold text-white mb-4" data-translate="online_diagnosis_title">
                         🧪 Diagnostic en ligne (Bientôt disponible !)
@@ -2616,6 +2655,9 @@
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION SERVICES -->
+        <!-- ==================================== -->
         <section id="services" class="services fade-in-section">
             <div class="container">
                 <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="services_title">
@@ -2626,6 +2668,7 @@
                 </p>
 
                 <div class="services-grid">
+                    <!-- Carte de service : Réparation Ordinateur -->
                     <div class="service-card animate-fadeInUp delay-200">
                         <div class="service-icon">
                             <i class="fas fa-wrench"></i>
@@ -2640,6 +2683,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de service : Formation à Domicile -->
                     <div class="service-card animate-fadeInUp delay-300">
                         <div class="service-icon">
                             <i class="fas fa-graduation-cap"></i>
@@ -2654,6 +2698,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de service : IA Robit Personnalisée -->
                     <div class="service-card animate-fadeInUp delay-400">
                         <div class="service-icon">
                             <i class="fas fa-robot"></i>
@@ -2668,6 +2713,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de service : Service à Domicile -->
                     <div class="service-card animate-fadeInUp delay-500">
                         <div class="service-icon">
                             <i class="fas fa-home"></i>
@@ -2682,6 +2728,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de service : Protection Anti-Virus -->
                     <div class="service-card animate-fadeInUp delay-600">
                         <div class="service-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -2696,6 +2743,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de service : Création de Site Web -->
                     <div class="service-card animate-fadeInUp delay-700">
                         <div class="service-icon">
                             <i class="fas fa-globe"></i>
@@ -2713,6 +2761,9 @@
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION D'ASSISTANCE À DISTANCE -->
+        <!-- ==================================== -->
         <section id="assistance" class="assistance-section fade-in-section">
             <div class="container">
                 <div class="text-center mb-16">
@@ -2725,6 +2776,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap: 3.5rem; /* Increased gap for more aeration */ mt-12">
+                    <!-- Carte de téléchargement Windows -->
                     <div class="download-card animate-fadeInUp delay-200" id="downloadCardWindows">
                         <div class="text-7xl">
                             <i class="fab fa-windows"></i>
@@ -2738,6 +2790,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de téléchargement macOS -->
                     <div class="download-card animate-fadeInUp delay-300" id="downloadCardMacOS">
                         <div class="text-7xl">
                             <i class="fab fa-apple"></i>
@@ -2751,6 +2804,7 @@
                         </a>
                     </div>
 
+                    <!-- Carte de téléchargement Linux -->
                     <div class="download-card animate-fadeInUp delay-400" id="downloadCardLinux">
                         <div class="text-7xl">
                             <i class="fab fa-linux"></i>
@@ -2765,6 +2819,7 @@
                     </div>
                 </div>
 
+                <!-- Boutons Bonus Téléchargements -->
                 <div class="flex flex-wrap justify-center gap: 3rem; /* Increased gap for more aeration */ mt-14">
                     <a href="pub/guide-assistance.pdf" class="btn btn-secondary" download data-translate="download_guide_button">
                         <i class="fas fa-file-pdf"></i> Guide de connexion à distance (PDF)
@@ -2774,6 +2829,7 @@
                     </a>
                 </div>
 
+                <!-- Note de sécurité -->
                 <div class="security-note animate-fadeInUp delay-500">
                     <p>
                         <strong data-translate="security_guaranteed_strong">🔒 Sécurité garantie :</strong> <span data-translate="security_guaranteed_text">Connexion directe et sécurisée à Patrick.</span>
@@ -2791,6 +2847,9 @@
         </section>
 
 
+        <!-- ==================================== -->
+        <!-- SECTION TÉMOIGNAGES -->
+        <!-- ==================================== -->
         <section id="testimonials" class="testimonials-section fade-in-section">
             <div class="container">
                 <div class="text-center mb-16">
@@ -2804,6 +2863,7 @@
 
                 <div class="testimonials-carousel-wrapper" style="position: relative;">
                     <div class="testimonials-grid">
+                        <!-- Témoignage 1 -->
                         <div class="testimonial-card animate-fadeInUp delay-200">
                             <p data-translate="testimonial_1_quote">
                                 "Patrick a résolu mon problème de PC en un rien de temps ! Il est d'une patience incroyable et explique tout si clairement. Un vrai magicien de l'informatique !"
@@ -2813,15 +2873,16 @@
                             </div>
                         </div>
 
+                        <!-- Témoignage 2 -->
                         <div class="testimonial-card animate-fadeInUp delay-300">
                             <p data-translate="testimonial_2_quote">
-                                "J'avais peur de l'informatique, mais les cours de Patrick sont géniaux. Il s'adapte à mon rythme et j'apprends tellement. Je le recommande à 100% !"
-                            </p>
+                                "J'avais peur de l'informatique, mais les cours de Patrick sont géniaux. Il s'adapte à mon rythme et j'apprends tellement. Je le recommande à 100% !"</p>
                             <div class="testimonial-author">
                                 <p class="name font-dancing-script" data-translate="testimonial_2_name">Jean Tremblay</p>
                             </div>
                         </div>
 
+                        <!-- Témoignage 3 -->
                         <div class="testimonial-card animate-fadeInUp delay-400">
                             <p data-translate="testimonial_3_quote">
                                 "Service à domicile impeccable ! Mon réseau Wi-Fi est enfin stable. Patrick est rapide, efficace et très sympathique. Le meilleur technicien que j'aie eu."
@@ -2831,6 +2892,7 @@
                             </div>
                         </div>
 
+                        <!-- Témoignage 4 (Exemple supplémentaire) -->
                         <div class="testimonial-card animate-fadeInUp delay-500">
                             <p data-translate="testimonial_4_quote">
                                 "Grâce à Patrick, mon vieil ordinateur a retrouvé une seconde jeunesse. Il a fait un nettoyage complet et maintenant tout est fluide. Service exceptionnel !"
@@ -2840,6 +2902,7 @@
                             </div>
                         </div>
 
+                        <!-- Témoignage 5 (Exemple supplémentaire) -->
                         <div class="testimonial-card animate-fadeInUp delay-600">
                             <p data-translate="testimonial_5_quote">
                                 "J'ai eu un problème urgent un samedi matin, et Patrick a répondu présent. Il a résolu le souci à distance en un temps record. Très professionnel et rassurant."
@@ -2853,6 +2916,7 @@
                     <button class="carousel-arrow carousel-arrow-right" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
                 </div>
 
+                <!-- Graphique de répartition de la satisfaction client -->
                 <div class="google-map-container animate-fadeInUp delay-700" style="margin-top: 6rem;"> 
                     <h3 data-translate="satisfaction_chart_title" class="font-caveat">Répartition de la Satisfaction Client</h3>
                     <div style="max-width: 400px; margin: 0 auto;">
@@ -2860,6 +2924,7 @@
                     </div>
                 </div>
                 
+                <!-- Graphique des types d'interventions -->
                 <div class="google-map-container animate-fadeInUp delay-800" style="margin-top: 4rem;">
                     <h3 data-translate="intervention_chart_title" class="font-caveat">Types d'Interventions</h3>
                     <div style="max-width: 600px; margin: 0 auto;">
@@ -2867,6 +2932,7 @@
                     </div>
                 </div>
 
+                <!-- Graphique du temps de résolution -->
                 <div class="google-map-container animate-fadeInUp delay-900" style="margin-top: 4rem;">
                     <h3 data-translate="resolution_chart_title" class="font-caveat">Temps de Résolution Estimé</h3>
                     <div style="max-width: 600px; margin: 0 auto;">
@@ -2876,6 +2942,9 @@
             </div>
         </section>
 
+        <!-- ==================================== -->
+        <!-- SECTION CONTACT -->
+        <!-- ==================================== -->
         <section id="contact" class="contact fade-in-section">
             <div class="container">
                 <h2 class="section-title animate-fadeInUp font-great-vibes" data-translate="contact_title">
@@ -2889,9 +2958,11 @@
                 <p class="contact-hours" data-translate="contact_phone_hours">
                     <strong data-translate="contact_phone_hours_regular_strong">Horaires réguliers :</strong> <span data-translate="contact_phone_hours_regular_text">Lun-Ven 9h-17h</span><br>
                     <strong data-translate="contact_phone_hours_emergency_strong">Urgence (surcoût) :</strong> <span data-translate="contact_phone_hours_emergency_text">7j/7 après 17h, weekends & fériés</span>
-                    <span id="availabilityStatus" class="ml-4 font-bold"></span> </p>
+                    <span id="availabilityStatus" class="ml-4 font-bold"></span> <!-- Statut de disponibilité -->
+                </p>
                 
                 <div class="contact-info-grid">
+                    <!-- Téléphone -->
                     <div class="contact-item animate-fadeInUp delay-200">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="content-text">
@@ -2899,6 +2970,7 @@
                             <p>(819) 380-2999</p>
                         </div>
                     </div>
+                    <!-- Email -->
                     <div class="contact-item animate-fadeInUp delay-300">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="content-text">
@@ -2907,6 +2979,7 @@
                             <p data-translate="contact_email_guarantee">Réponse sous 24h garantie</p>
                         </div>
                     </div>
+                    <!-- Adresse -->
                     <div class="contact-item animate-fadeInUp delay-400">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="content-text">
@@ -2915,6 +2988,7 @@
                             <p data-translate="contact_address_radius">Service à domicile dans un rayon de 50km</p>
                         </div>
                     </div>
+                    <!-- NEQ -->
                     <div class="contact-item animate-fadeInUp delay-500">
                         <div class="contact-icon"><i class="fas fa-id-card"></i></div>
                         <div class="content-text">
@@ -2925,6 +2999,7 @@
                     </div>
                 </div>
 
+                <!-- Formulaire de demande rapide -->
                 <div class="contact-form-container animate-fadeInUp delay-600">
                     <h3 data-translate="quick_request_form_title" class="font-caveat">Formulaire de demande rapide</h3>
                     <form id="contactForm" action="YOUR_FORM_SUBMISSION_URL" method="POST"> 
@@ -2947,6 +3022,7 @@
                     </form>
                 </div>
 
+                <!-- Google Map -->
                 <div class="google-map-container animate-fadeInUp delay-700">
                     <h3 data-translate="map_title" class="font-caveat">Où nous trouver à Nicolet, Centre-du-Québec</h3>
                     <iframe 
@@ -2961,6 +3037,7 @@
                     ></iframe>
                 </div>
 
+                <!-- Module Urgence -->
                 <div class="emergency-module animate-fadeInUp delay-800">
                     <h3 data-translate="emergency_module_title" class="font-great-vibes">
                         ⚠️ Problème urgent ? Aide immédiate !
@@ -2971,6 +3048,7 @@
                     <a href="tel:8193802999" class="btn btn-red" data-translate="emergency_call_button">
                         <i class="fas fa-phone-volume"></i> Appeler Patrick en urgence
                     </a>
+                    <!-- Lien direct pour télécharger l'agent RustDesk préconfiguré (CHEMIN AJUSTÉ POUR PUB/) -->
                     <p class="mt-4 text-sm" data-translate="emergency_download_agent_note">
                         <a href="pub/rustdesk-agent.exe" download class="text-white underline hover:text-yellow-300"> 
                             Ou téléchargez l'agent d'assistance RustDesk préconfiguré ici.
@@ -2985,6 +3063,7 @@
                     <a href="https://quickbooks.intuit.com/payments/YOUR_QUICKBOOKS_CLIENT_PAYMENT_LINK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-translate="pay_invoice_button">
                         <i class="fas fa-credit-card"></i> Payer une facture
                     </a>
+                    <!-- Lien vers l'espace client (futur) -->
                     <a href="/client-area.html" class="btn btn-secondary opacity-50 cursor-not-allowed" data-translate="client_area_button">
                         <i class="fas fa-user-circle"></i> Espace Client (Bientôt)
                     </a>
@@ -2993,6 +3072,9 @@
         </section>
     </main>
 
+    <!-- ==================================== -->
+    <!-- PIED DE PAGE -->
+    <!-- ==================================== -->
     <footer class="footer">
         <div class="container">
             <p>
@@ -3022,10 +3104,14 @@
         </div>
     </footer>
 
+    <!-- ==================================== -->
+    <!-- Bouton flottant Robit (Nouveau) -->
+    <!-- ==================================== -->
     <button id="floatingRobitBtn" class="floating-robit-btn" data-translate="floating_robit_btn_text">
         <i class="fas fa-robot"></i>
     </button>
 
+    <!-- JAVASCRIPT INTÉGRÉ ICI -->
     <script>
         // ====================================
         // JavaScript pour les fonctionnalités interactives du site
@@ -3342,6 +3428,156 @@
                 availability_status_closed: "🔴 Fermé pour l'instant", 
                 availability_status_emergency: "🟠 Urgence seulement", 
                 floating_robit_btn_text: "💬 Parler à Robit" 
+            },
+            en: {
+                page_title: "Potvin IT Workshop",
+                company_name: "Potvin IT Workshop",
+                robit_menu: "🤖 Robit Assistant Free",
+                services_menu: "Services",
+                assistance_menu: "Support",
+                contact_menu: "Contact",
+                call_to_action_header: "(819) 380-2999",
+                founder_expert: "Founder • Expert since 1984",
+                hero_tagline: "❤️ Passionate since age 9",
+                hero_title: "Hi, I'm Patrick! Your trusted IT expert.",
+                hero_description: "Since 1984, I help people regain control of their computer.", 
+                years_experience: "Years of Experience",
+                clients_helped: "Clients Helped",
+                available: "Available",
+                free_quote_button: "Request assistance now", 
+                talk_to_robit_button: "Talk to Robit AI", 
+                download_agent_button: "Download my secure agent", 
+                whatsapp_button_hero: "WhatsApp",
+                urgent_call_note: "For any IT emergency, Patrick is available 7/7. Don't wait!",
+                badge_quebec: "100% Quebec", 
+                badge_secure: "Secure – No access without consent", 
+                badge_tested: "Tested on +1000 machines", 
+                badge_compatible: "Compatible : Windows / macOS / Linux", 
+                robit_title: "Robit - Your Intelligent Assistant",
+                robit_description: "Need a quick answer to an IT question? Is your computer acting up? Chat with Robit, your intelligent virtual assistant.",
+                robit_free_tag: "💎 100% FREE & INSTANT 💎",
+                robit_status: "🤖 Robit Assistant - Online and ready to help!",
+                powered_by_gemini: "", 
+                robit_initial_greeting_strong: "Hi! I'm Robit, Patrick's super intelligent assistant!",
+                robit_pc_slow_strong: "Is your PC slow?",
+                robit_pc_slow_text: "I'll give you immediate solutions!",
+                robit_virus_strong: "Virus problem?",
+                robit_virus_text: "I'll guide you step by step!",
+                robit_tablet_strong: "Mysterious tablet?",
+                robit_tablet_text: "I'll explain everything simply!",
+                robit_learn_strong: "Want to learn?",
+                robit_learn_text: "I'll train you with patience!",
+                robit_ask_question_strong: "Ask me your question and I'll give you a FREE personalized answer!",
+                robit_emergency_strong: "Emergency? Call Patrick directly:",
+                robit_phone_number: "(819) 380-2999",
+                robit_home_service_strong: "Home service available • Free diagnosis included",
+                send_button: "Send",
+                online_diagnosis_title: "🧪 Online Diagnosis (Coming Soon!)", 
+                online_diagnosis_description: "A simple tool to scan memory, disk, or processor remotely and get a free mini-report.", 
+                online_diagnosis_button: "Launch a quick diagnosis", 
+                services_title: "How I can help you",
+                services_description: "Services designed for you, with the patience and expertise you deserve.",
+                repair_title: "Computer Repair",
+                repair_description: "PC slow, viruses, blue screens... I'll find the problem and fix it, explaining everything step by step.", 
+                repair_price: "$45/hr – 1st hour included", 
+                repair_button: "Patrick, come check this out!",
+                home_service_title: "Home Service",
+                home_service_description: "I come to your home with all my tools. You stay comfortable in your living room while I take care of your IT troubles.",
+                home_service_price: "Travel: $25 only",
+                home_service_button: "Book an appointment",
+                antivirus_title: "Antivirus Protection",
+                antivirus_description: "No more pop-ups and scams! I'll install solid protection and show you how to browse the internet safely.",
+                antivirus_price: "Full package: $125",
+                antivirus_button: "Protect me Patrick!",
+                virustotal_link: "Check a file with VirusTotal",
+                courses_title: "In-Home Training", 
+                courses_description: "I'll show you how to use your computer, tablet, or cell phone at your own pace. <strong style='color:var(--color-primary);'>Training adapted for seniors and beginners, no pressure!</strong>", 
+                courses_emphasis_elders: "Training adapted for seniors and beginners, no pressure!", 
+                courses_price: "$60/hour • No pressure",
+                courses_button: "Learn with Patrick",
+                robit_service_title: "Personalized Robit AI", 
+                robit_service_description: "Ask your questions – Robit answers. An intelligent assistant always there to help you with your IT worries.", 
+                robit_service_price: "First contact free", 
+                robit_service_button: "Talk to Robit", 
+                website_title: "Website Creation",
+                website_description: "Need an online presence? I design custom websites for small businesses and professionals, in your image.",
+                website_price: "Custom quote",
+                website_button: "Request a quote!",
+                installation_title: "Installation & Configuration",
+                installation_description: "Installation d'équipements domotiques, informatiques et réseau : ordinateurs, imprimantes, routeurs, objets connectés... I'll take care of everything.",
+                installation_price: "On quote",
+                installation_button: "Configure with Patrick!",
+                assistance_title: "📡 Secure Remote Assistance", 
+                assistance_description: "Téléchargez l'outil sécurisé pour permettre à Patrick de vous aider immédiatement, où que vous soyez.",
+                windows_title: "For Windows",
+                windows_compatibility: "Compatible with Windows Vista, 7, 8, 10, and 11.",
+                download_windows_button: "Download for Windows",
+                macos_title: "For macOS",
+                macos_compatibility: "Compatible with macOS 10.12 (Sierra) and newer versions.",
+                download_macos_button: "Download for macOS",
+                linux_title: "For Linux", 
+                linux_compatibility: "Compatible with most Linux distributions.", 
+                download_linux_button: "Download for Linux", 
+                download_guide_button: "Remote Connection Guide (PDF)", 
+                download_all_agents_button: "All Agents (ZIP)", 
+                security_guaranteed_strong: "🔒 Sécurité garantie :",
+                security_guaranteed_text: "Connexion directe et sécurisée à Patrick.",
+                important_note_strong: "Note importante :",
+                important_note_text: "Votre antivirus peut détecter l'agent comme un \"faux positif\". C'est un comportement normal pour ce type d'outil d'assistance à distance. Vous pouvez l'ignorer en toute confiance.",
+                learn_more_false_positive: "(Learn more)",
+                virustotal_verified_text: "Verified and approved by security standards.", 
+                testimonials_title: "What my clients say about me",
+                testimonials_description: "Client satisfaction is my greatest pride. Here's some of their feedback.",
+                testimonial_1_quote: "\"Patrick solved my PC problem in no time! He is incredibly patient and explains everything so clearly. A true IT magician!\"",
+                testimonial_1_name: "Marie Dubois",
+                testimonial_1_role: "Retired, Nicolet",
+                testimonial_2_quote: "\"I was afraid of computers, but Patrick's courses are great. He adapts to my pace and I learn so much. I recommend him 100%!\"",
+                testimonial_2_name: "Jean Tremblay",
+                testimonial_2_role: "Entrepreneur, Victoriaville",
+                testimonial_3_quote: "\"Impeccable home service! My Wi-Fi network is finally stable. Patrick is fast, efficient, and very friendly. The best technician I've ever had.\"",
+                testimonial_3_name: "Sophie Lévesque",
+                testimonial_3_role: "Family, Bécancour",
+                testimonial_4_quote: "\"Thanks to Patrick, my old computer got a second life. He did a complete cleanup and now everything is smooth. Exceptional service!\"", 
+                testimonial_4_name: "Marc Gagnon", 
+                testimonial_5_quote: "\"I had an urgent problem on a Saturday morning, and Patrick responded promptly. He resolved the issue remotely in record time. Very professional and reassuring.\"", 
+                testimonial_5_name: "Isabelle Roy", 
+                contact_title: "Call Patrick to solve your worries!",
+                contact_description: "A question? An urgent problem? Patrick is here to help you with a smile.",
+                contact_phone_title: "Phone",
+                contact_phone_hours_regular_strong: "Regular hours:",
+                contact_phone_hours_regular_text: "Mon-Fri 9am-5pm",
+                contact_phone_hours_emergency_strong: "Emergency (extra charge):",
+                contact_phone_hours_emergency_text: "7/7 after 5pm, weekends & holidays",
+                contact_email_title: "Email",
+                contact_email_guarantee: "Response within 24h guaranteed",
+                contact_address_title: "Address",
+                contact_address_radius: "Home service within a 50km radius",
+                contact_neq_title: "NEQ",
+                contact_neq_text: "Company registered in Quebec",
+                quick_request_form_title: "Quick request form", 
+                form_name_label: "Name:", 
+                form_phone_label: "Phone:", 
+                form_email_label: "Email (optional):", 
+                form_problem_description_label: "Problem description:", 
+                form_submit_button: "Send my request", 
+                map_title: "Where to find us", 
+                emergency_module_title: "⚠️ Urgent problem? Immediate help!", 
+                emergency_module_description: "For emergencies after 5 PM, weekends, and holidays, a double rate applies. Your problem will be solved quickly!", 
+                emergency_call_button: "Call Patrick for emergency", 
+                emergency_download_agent_note: "Or download the pre-configured RustDesk assistance agent here.", 
+                call_patrick_now_button: "Call Patrick now",
+                pay_invoice_button: "Pay an invoice",
+                client_area_button: "Client Area (Coming Soon)", 
+                privacy_policy_link: "Privacy Policy",
+                terms_of_service_link: "Terms of Service",
+                footer_copyright_company: "Potvin IT Workshop (AIP)",
+                footer_copyright_patrick: "Patrick Potvin, at your service since 1984 ❤️",
+                footer_ai_creation: "🤖 Site created with assistant help • Modern & warm design 2025",
+                footer_design_by: "🎨 Design and conception by Patrick Potvin - AIP Potvin IT Workshop",
+                availability_status_open: "🟢 Available today", 
+                availability_status_closed: "🔴 Closed for now", 
+                availability_status_emergency: "🟠 Emergency only", 
+                floating_robit_btn_text: "💬 Talk to Robit" 
             }
         };
 
