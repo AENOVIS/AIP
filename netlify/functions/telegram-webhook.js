@@ -5,7 +5,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 
 // ⚡ CONFIGURATION
-const token = 'VOTRE_TOKEN_TELEGRAM_BOT';
+const token = '8170275754:AAHiJLCy2kqZstHDfjE2nnU7_FijdyJadug';
 const bot = new TelegramBot(token, {polling: true});
 
 // 💙 MESSAGE D'ACCUEIL PATCH
