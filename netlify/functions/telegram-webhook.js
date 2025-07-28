@@ -1,231 +1,269 @@
-// netlify/functions/telegram-webhook.js - VERSION INTELLIGENTE
-exports.handler = async (event, context) => {
-    if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: 'Method Not Allowed' };
-    }
+// 🚀 PATCH BOT - CODE TELEGRAM COMPLET
+// Patrick Potvin - Atelier Informatique Potvin
+// "On patch les gens depuis 1984"
 
-    try {
-        const update = JSON.parse(event.body);
-        const message = update.message;
-        
-        if (!message || !message.text) {
-            return { statusCode: 200, body: 'OK' };
-        }
+const TelegramBot = require('node-telegram-bot-api');
 
-        const chatId = message.chat.id;
-        const text = message.text;
-        const BOT_TOKEN = '8170275754:AAHiJLCy2kqZstHDfjE2nnU7_FijdyJadug';
-        const PATRICK_CHAT_ID = '7922673127';
-        const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Clé depuis Netlify
+// ⚡ CONFIGURATION
+const token = 'VOTRE_TOKEN_TELEGRAM_BOT';
+const bot = new TelegramBot(token, {polling: true});
 
-        // Détection langue simple
-        const isEnglish = text.toLowerCase().includes('hello') || 
-                         text.toLowerCase().includes('computer') || 
-                         text.toLowerCase().includes('english');
-        
-        // ZONES DE DANGER CRITIQUE
-        const dangerWords = ['format', 'registre', 'registry', 'cmd', 'powershell', 
-                           'bios', 'password', 'mot de passe', 'delete', 'rm -rf', 
-                           'deltree', 'fdisk', 'partition'];
-        
-        const hasCriticalDanger = dangerWords.some(word => 
-            text.toLowerCase().includes(word.toLowerCase()));
+// 💙 MESSAGE D'ACCUEIL PATCH
+const welcomeMessage = `
+Salut ! 😊 Je suis Patch, l'assistant de Patrick Potvin !
 
-        if (hasCriticalDanger) {
-            const dangerResponse = isEnglish ?
-                "🛑 STOP! CRITICAL DANGER DETECTED!\n\nDO NOT proceed! This could destroy your data!\n\nCall Patrick IMMEDIATELY: (819) 380-2999\n\n⚠️ Patrick has been alerted automatically." :
-                "🛑 ARRÊT ! DANGER CRITIQUE DÉTECTÉ !\n\nNE procédez PAS ! Ceci pourrait détruire vos données !\n\nAppelez Patrick IMMÉDIATEMENT : (819) 380-2999\n\n⚠️ Patrick a été alerté automatiquement.";
-            
-            // Alerte urgente à Patrick
-            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: PATRICK_CHAT_ID,
-                    text: `🚨 ALERTE ROUGE PATCH 🚨\n\nDANGER CRITIQUE DÉTECTÉ !\n\nClient: ${message.from.first_name || 'Inconnu'} (@${message.from.username || 'pas_username'})\nMessage: "${text}"\n\n⚠️ INTERVENTION URGENTE REQUISE !\nTemps: ${new Date().toLocaleString('fr-CA')}`
-                })
-            });
+Ici on répare pas juste des ordinateurs... 
+ON PATCH LES GENS ! 
 
-            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: dangerResponse
-                })
-            });
+✅ Patrick : 41 ans d'expérience depuis 1984
+✅ Diagnostic gratuit 24h/24
+✅ Service : 150$/h 
+✅ Urgence weekend : 300$/h
 
-            return { statusCode: 200, body: JSON.stringify({ success: true, alert: 'critical' }) };
-        }
+Décrivez votre problème technique ! 🔧
 
-        // PROMPT SYSTÈME POUR PATCH
-        const systemPrompt = isEnglish ? 
-            `You are Patch, Patrick Potvin's intelligent IT assistant. Patrick has 41 years of experience helping people with computers in Nicolet, Quebec.
+---
 
-PERSONALITY: Friendly, patient, professional, knowledgeable but not pretentious. Use emojis sparingly.
+Hi! 😊 I'm Patch, Patrick Potvin's assistant!
 
-YOUR ROLE: 
-- Help with common IT problems (slow PC, viruses, printers, etc.)
-- Give practical, step-by-step solutions
-- Know when to escalate to Patrick
-- Be encouraging and supportive
+Here we don't just fix computers... 
+WE PATCH PEOPLE! 
 
-ESCALATION RULES:
-- Complex hardware failures → "Patrick should diagnose this"
-- Data recovery needs → "Patrick has specialized tools" 
-- Business network issues → "Patrick can configure this properly"
-- If unsure about safety → "Let's have Patrick take a look"
+✅ Patrick: 41 years experience since 1984
+✅ Free diagnosis 24/7
+✅ Service: $150/h 
+✅ Weekend emergency: $300/h
 
-PATRICK'S INFO:
-- Phone: (819) 380-2999
-- Service area: Nicolet and 50km radius
-- Services: Repairs, training, home visits, remote assistance
-- Specialties: Patient with seniors, explains everything clearly
+Describe your tech problem! 🔧
+`;
 
-RESPONSE STYLE:
-- Keep answers concise but complete
-- Always include Patrick's contact for complex issues
-- Be reassuring about simple problems
-- Use "Patrick" not "he" when referring to him
+// 🎯 MOTS-CLÉS URGENCE
+const urgentKeywords = [
+    'urgent', 'emergency', 'crashed', 'planté', 'help', 'aide',
+    'virus', 'hack', 'perdu', 'lost', 'backup', 'sauvegarde',
+    'weekend', 'soir', 'evening', 'night', 'dimanche'
+];
 
-Answer in English.` :
-            
-            `Tu es Patch, l'assistant informatique intelligent de Patrick Potvin. Patrick a 41 ans d'expérience à aider les gens avec leurs ordinateurs à Nicolet, Québec.
+// 🎯 MOTS-CLÉS COMPLEXES (TRANSFERT PATRICK)
+const complexKeywords = [
+    'server', 'serveur', 'network', 'réseau', 'database',
+    'base de données', 'backup', 'security', 'sécurité',
+    'installation', 'formation', 'training'
+];
 
-PERSONNALITÉ: Amical, patient, professionnel, compétent mais pas prétentieux. Utilise les emojis avec modération.
+// 💬 RÉPONSES PATCH
+const patchResponses = {
+    greeting: `Salut ! Je suis Patch ! 😊
+Comment puis-je vous aider avec votre technologie ?`,
 
-TON RÔLE:
-- Aider avec les problèmes informatiques courants (PC lent, virus, imprimantes, etc.)
-- Donner des solutions pratiques, étape par étape
-- Savoir quand escalader vers Patrick
-- Être encourageant et rassurant
+    escalation: `Je transfère à Patrick immédiatement ! 📞
 
-RÈGLES D'ESCALADE:
-- Pannes matérielles complexes → "Patrick devrait diagnostiquer ça"
-- Récupération de données → "Patrick a des outils spécialisés"
-- Problèmes réseau d'entreprise → "Patrick peut configurer ça proprement"
-- Si incertain sur la sécurité → "Demandons à Patrick de regarder ça"
+Patrick Potvin - Expert 41 ans
+☎️ (819) 380-2999
+💻 patrick@aip-nicolet.ca
+🌐 aip-nicolet.ca
 
-INFOS PATRICK:
-- Téléphone: (819) 380-2999
-- Zone de service: Nicolet et 50km de rayon
-- Services: Réparations, formation, visites à domicile, assistance à distance
-- Spécialités: Patient avec les aînés, explique tout clairement
+Service : 150$/h | Urgence : 300$/h
+"On patch les gens depuis 1984 !"`,
 
-STYLE DE RÉPONSE:
-- Garde les réponses concises mais complètes
-- Inclus toujours le contact de Patrick pour les problèmes complexes
-- Sois rassurant pour les problèmes simples
-- Utilise "Patrick" et non "il" quand tu fais référence à lui
+    pricing: `💰 TARIFS PATRICK POTVIN :
 
-Réponds en français.`;
+🔍 Diagnostic : GRATUIT
+⚙️ Service régulier : 150$/h
+🚨 Urgence weekend/soir : 300$/h
+📚 Formation : 150$/h
 
-        // APPEL À GEMINI API
-        const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                contents: [
-                    {
-                        role: "user",
-                        parts: [
-                            {
-                                text: `${systemPrompt}\n\nClient question: "${text}"`
-                            }
-                        ]
-                    }
-                ],
-                generationConfig: {
-                    temperature: 0.7,
-                    topK: 40,
-                    topP: 0.95,
-                    maxOutputTokens: 500,
-                },
-                safetySettings: [
-                    {
-                        category: "HARM_CATEGORY_HARASSMENT",
-                        threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                    }
-                ]
-            })
-        });
+📞 (819) 380-2999
+🌐 aip-nicolet.ca`,
 
-        if (!geminiResponse.ok) {
-            throw new Error(`Gemini API Error: ${geminiResponse.status}`);
-        }
+    about: `👨‍💻 PATRICK POTVIN - EXPERT DEPUIS 1984
 
-        const geminiData = await geminiResponse.json();
-        
-        let PatchResponse;
-        if (geminiData.candidates && geminiData.candidates[0]?.content?.parts?.[0]?.text) {
-            PatchResponse = geminiData.candidates[0].content.parts[0].text;
-            
-            // Ajouter signature Patrick si pas déjà mentionné
-            if (!PatchResponse.includes('380-2999') && !PatchResponse.includes('Patrick')) {
-                const signature = isEnglish ? 
-                    "\n\nNeed more help? Call Patrick: (819) 380-2999" :
-                    "\n\nBesoin d'aide supplémentaire ? Appelez Patrick : (819) 380-2999";
-                PatchResponse += signature;
-            }
-        } else {
-            // Fallback si Gemini échoue
-            PatchResponse = isEnglish ?
-                "I'm having trouble connecting to my brain right now! 😅\n\nFor immediate help, call Patrick directly: (819) 380-2999\n\nHe's the real expert anyway!" :
-                "J'ai des problèmes de connexion avec mon cerveau en ce moment ! 😅\n\nPour de l'aide immédiate, appelez Patrick directement : (819) 380-2999\n\nC'est lui le vrai expert de toute façon !";
-        }
+✅ 41 ans d'expérience informatique
+✅ 2500+ clients satisfaits
+✅ Disponible 7j/7
+✅ Nicolet, Centre-du-Québec
+✅ "On patch les gens depuis 1984"
 
-        // Envoyer la réponse au client
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: PatchResponse,
-                parse_mode: 'Markdown'
-            })
-        });
+Avec Patch, mon assistant IA, vous avez 
+de l'aide technique 24h/24 !
 
-        // Log pour Patrick (conversations importantes)
-        if (text.length > 50 || text.toLowerCase().includes('urgent') || text.toLowerCase().includes('problème')) {
-            const logMessage = `📋 Conversation Patch\n\nClient: ${message.from.first_name || 'Inconnu'}\nQuestion: "${text}"\nRéponse donnée: "${PatchResponse.substring(0, 200)}..."\n\nTemps: ${new Date().toLocaleString('fr-CA')}`;
-            
-            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: PATRICK_CHAT_ID,
-                    text: logMessage
-                })
-            });
-        }
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ success: true, intelligent: true })
-        };
-
-    } catch (error) {
-        console.error('Patch Error:', error);
-        
-        // Message d'erreur convivial
-        const errorResponse = isEnglish ?
-            "Oops! My circuits are a bit scrambled right now 🤖⚡\n\nDon't worry though - Patrick is always available for real help: (819) 380-2999" :
-            "Oups ! Mes circuits sont un peu mélangés en ce moment 🤖⚡\n\nMais pas de souci - Patrick est toujours disponible pour de la vraie aide : (819) 380-2999";
-
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: errorResponse
-            })
-        });
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ success: false, error: error.message })
-        };
-    }
+📞 (819) 380-2999
+🌐 aip-nicolet.ca`
 };
+
+// 🚀 COMMANDE /START
+bot.onText(/\/start/, (msg) => {
+    const chatId = msg.chat.id;
+    const firstName = msg.from.first_name || 'ami';
+    
+    bot.sendMessage(chatId, welcomeMessage, {
+        reply_markup: {
+            inline_keyboard: [
+                [
+                    {text: '💰 Voir les tarifs', callback_data: 'pricing'},
+                    {text: '👨‍💻 À propos de Patrick', callback_data: 'about'}
+                ],
+                [
+                    {text: '📞 Appeler Patrick', url: 'tel:+18193802999'},
+                    {text: '🌐 Site web', url: 'https://aip-nicolet.ca'}
+                ]
+            ]
+        }
+    });
+});
+
+// 💬 ANALYSE DES MESSAGES
+bot.on('message', (msg) => {
+    if (msg.text && !msg.text.startsWith('/')) {
+        const chatId = msg.chat.id;
+        const text = msg.text.toLowerCase();
+        const firstName = msg.from.first_name || 'ami';
+        
+        // 🚨 DÉTECTION URGENCE
+        if (urgentKeywords.some(keyword => text.includes(keyword))) {
+            bot.sendMessage(chatId, `🚨 URGENCE DÉTECTÉE !
+
+${firstName}, votre problème semble urgent.
+
+WEEKEND/SOIR : 300$/h
+SEMAINE : 150$/h
+
+Patrick disponible maintenant :
+📞 (819) 380-2999
+
+"On patch les gens 7j/7 !"`, {
+                reply_markup: {
+                    inline_keyboard: [
+                        [{text: '📞 Appeler MAINTENANT', url: 'tel:+18193802999'}]
+                    ]
+                }
+            });
+            return;
+        }
+        
+        // 🎯 DÉTECTION COMPLEXE
+        if (complexKeywords.some(keyword => text.includes(keyword))) {
+            bot.sendMessage(chatId, `🎯 PROBLÈME COMPLEXE DÉTECTÉ !
+
+${firstName}, ça dépasse mes capacités.
+Je transfère à Patrick immédiatement !
+
+Patrick Potvin - Expert 41 ans
+📞 (819) 380-2999
+💻 patrick@aip-nicolet.ca
+
+Tarif : 150$/h (diagnostic gratuit)
+"On patch les gens depuis 1984 !"`, {
+                reply_markup: {
+                    inline_keyboard: [
+                        [{text: '📞 Parler à Patrick', url: 'tel:+18193802999'}]
+                    ]
+                }
+            });
+            return;
+        }
+        
+        // 💬 RÉPONSE GÉNÉRALE
+        bot.sendMessage(chatId, `Merci ${firstName} ! 😊
+
+J'analyse votre problème : "${msg.text}"
+
+🔍 Diagnostic en cours...
+
+Si c'est simple, je vous aide !
+Si c'est complexe, Patrick intervient.
+
+⏳ Un moment s'il vous plaît...`, {
+            reply_markup: {
+                inline_keyboard: [
+                    [{text: '📞 Parler directement à Patrick', url: 'tel:+18193802999'}]
+                ]
+            }
+        });
+        
+        // ⏳ SIMULATION ANALYSE (3 secondes)
+        setTimeout(() => {
+            bot.sendMessage(chatId, `🎯 ANALYSE TERMINÉE !
+
+${firstName}, votre problème nécessite 
+l'expertise de Patrick (41 ans d'expérience).
+
+DIAGNOSTIC GRATUIT inclus !
+Service : 150$/h
+
+📞 (819) 380-2999
+🌐 aip-nicolet.ca
+
+"On patch les gens depuis 1984 !"`, {
+                reply_markup: {
+                    inline_keyboard: [
+                        [{text: '📞 Appeler Patrick', url: 'tel:+18193802999'}]
+                    ]
+                }
+            });
+        }, 3000);
+    }
+});
+
+// 🎛️ BOUTONS CALLBACK
+bot.on('callback_query', (callbackQuery) => {
+    const message = callbackQuery.message;
+    const data = callbackQuery.data;
+    const chatId = message.chat.id;
+    
+    switch(data) {
+        case 'pricing':
+            bot.sendMessage(chatId, patchResponses.pricing);
+            break;
+        case 'about':
+            bot.sendMessage(chatId, patchResponses.about);
+            break;
+    }
+    
+    bot.answerCallbackQuery(callbackQuery.id);
+});
+
+// 🎯 COMMANDES SPÉCIALES
+bot.onText(/\/help/, (msg) => {
+    bot.sendMessage(msg.chat.id, `🆘 AIDE PATCH
+
+Je suis l'assistant de Patrick Potvin !
+
+Commandes :
+/start - Menu principal
+/prix - Voir les tarifs  
+/patrick - Contacter Patrick
+/help - Cette aide
+
+Décrivez simplement votre problème
+et je vous aide ou vous dirige vers Patrick !
+
+"On patch les gens depuis 1984 !" 😊`);
+});
+
+bot.onText(/\/prix/, (msg) => {
+    bot.sendMessage(msg.chat.id, patchResponses.pricing);
+});
+
+bot.onText(/\/patrick/, (msg) => {
+    bot.sendMessage(msg.chat.id, patchResponses.escalation);
+});
+
+// 🔧 GESTION ERREURS
+bot.on('polling_error', (error) => {
+    console.log('Erreur Patch Bot:', error);
+});
+
+// 🚀 DÉMARRAGE
+console.log('🚀 Patch Bot démarré !');
+console.log('💙 "On patch les gens depuis 1984"');
+console.log('🌐 aip-nicolet.ca');
+
+// 📊 STATS (OPTIONNEL)
+let messagesCount = 0;
+bot.on('message', () => {
+    messagesCount++;
+    if (messagesCount % 10 === 0) {
+        console.log(`📊 Patch a traité ${messagesCount} messages !`);
+    }
+});
