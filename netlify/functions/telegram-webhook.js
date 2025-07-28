@@ -42,7 +42,7 @@ exports.handler = async (event, context) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: PATRICK_CHAT_ID,
-                    text: `🚨 ALERTE ROUGE ROBIT 🚨\n\nDANGER CRITIQUE DÉTECTÉ !\n\nClient: ${message.from.first_name || 'Inconnu'} (@${message.from.username || 'pas_username'})\nMessage: "${text}"\n\n⚠️ INTERVENTION URGENTE REQUISE !\nTemps: ${new Date().toLocaleString('fr-CA')}`
+                    text: `🚨 ALERTE ROUGE PATCH 🚨\n\nDANGER CRITIQUE DÉTECTÉ !\n\nClient: ${message.from.first_name || 'Inconnu'} (@${message.from.username || 'pas_username'})\nMessage: "${text}"\n\n⚠️ INTERVENTION URGENTE REQUISE !\nTemps: ${new Date().toLocaleString('fr-CA')}`
                 })
             });
 
@@ -58,9 +58,9 @@ exports.handler = async (event, context) => {
             return { statusCode: 200, body: JSON.stringify({ success: true, alert: 'critical' }) };
         }
 
-        // PROMPT SYSTÈME POUR ROBIT
+        // PROMPT SYSTÈME POUR PATCH
         const systemPrompt = isEnglish ? 
-            `You are Robit, Patrick Potvin's intelligent IT assistant. Patrick has 41 years of experience helping people with computers in Nicolet, Quebec.
+            `You are Patch, Patrick Potvin's intelligent IT assistant. Patrick has 41 years of experience helping people with computers in Nicolet, Quebec.
 
 PERSONALITY: Friendly, patient, professional, knowledgeable but not pretentious. Use emojis sparingly.
 
@@ -90,7 +90,7 @@ RESPONSE STYLE:
 
 Answer in English.` :
             
-            `Tu es Robit, l'assistant informatique intelligent de Patrick Potvin. Patrick a 41 ans d'expérience à aider les gens avec leurs ordinateurs à Nicolet, Québec.
+            `Tu es Patch, l'assistant informatique intelligent de Patrick Potvin. Patrick a 41 ans d'expérience à aider les gens avec leurs ordinateurs à Nicolet, Québec.
 
 PERSONNALITÉ: Amical, patient, professionnel, compétent mais pas prétentieux. Utilise les emojis avec modération.
 
@@ -158,20 +158,20 @@ Réponds en français.`;
 
         const geminiData = await geminiResponse.json();
         
-        let robitResponse;
+        let PatchResponse;
         if (geminiData.candidates && geminiData.candidates[0]?.content?.parts?.[0]?.text) {
-            robitResponse = geminiData.candidates[0].content.parts[0].text;
+            PatchResponse = geminiData.candidates[0].content.parts[0].text;
             
             // Ajouter signature Patrick si pas déjà mentionné
-            if (!robitResponse.includes('380-2999') && !robitResponse.includes('Patrick')) {
+            if (!PatchResponse.includes('380-2999') && !PatchResponse.includes('Patrick')) {
                 const signature = isEnglish ? 
                     "\n\nNeed more help? Call Patrick: (819) 380-2999" :
                     "\n\nBesoin d'aide supplémentaire ? Appelez Patrick : (819) 380-2999";
-                robitResponse += signature;
+                PatchResponse += signature;
             }
         } else {
             // Fallback si Gemini échoue
-            robitResponse = isEnglish ?
+            PatchResponse = isEnglish ?
                 "I'm having trouble connecting to my brain right now! 😅\n\nFor immediate help, call Patrick directly: (819) 380-2999\n\nHe's the real expert anyway!" :
                 "J'ai des problèmes de connexion avec mon cerveau en ce moment ! 😅\n\nPour de l'aide immédiate, appelez Patrick directement : (819) 380-2999\n\nC'est lui le vrai expert de toute façon !";
         }
@@ -182,14 +182,14 @@ Réponds en français.`;
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 chat_id: chatId,
-                text: robitResponse,
+                text: PatchResponse,
                 parse_mode: 'Markdown'
             })
         });
 
         // Log pour Patrick (conversations importantes)
         if (text.length > 50 || text.toLowerCase().includes('urgent') || text.toLowerCase().includes('problème')) {
-            const logMessage = `📋 Conversation Robit\n\nClient: ${message.from.first_name || 'Inconnu'}\nQuestion: "${text}"\nRéponse donnée: "${robitResponse.substring(0, 200)}..."\n\nTemps: ${new Date().toLocaleString('fr-CA')}`;
+            const logMessage = `📋 Conversation Patch\n\nClient: ${message.from.first_name || 'Inconnu'}\nQuestion: "${text}"\nRéponse donnée: "${PatchResponse.substring(0, 200)}..."\n\nTemps: ${new Date().toLocaleString('fr-CA')}`;
             
             await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
@@ -207,7 +207,7 @@ Réponds en français.`;
         };
 
     } catch (error) {
-        console.error('Robit Error:', error);
+        console.error('Patch Error:', error);
         
         // Message d'erreur convivial
         const errorResponse = isEnglish ?
